@@ -9,16 +9,16 @@
   padding-left: 10px;
 }
 
-.title {
+.headerTitle {
   padding-left: 10px;
   width: 25vw;
 }
 
-.title h1 {
+.headerTitle h1 {
   text-align: center;
 }
 
-.title p {
+.headerTitle p {
   /* width: 200px; */
   font-size: 10px;
   text-align: center;
