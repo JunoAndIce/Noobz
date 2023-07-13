@@ -15,43 +15,36 @@
     <!-- NEW SECTION -->
     <!-- https://bulma.io/documentation/layout/hero/ -->
 
-    <section class="hero is-info">
-        <div class="hero-body columns">
-
-          <div class="hero">
-            <h1 class="title has-text-light is-size-2">NOOBZ</h1>
-            <p class="subtitle">Your gaming walkthrough database</p>
-          </div>
+    <section class="header">
+        <nav class="nav">
+        
+            <div class="title">
+                <h1 class="noob title has-text-light is-size-2">NOOBZ</h1>
+                <p class="noob subtitle">Your gaming walkthrough database</p>
+            </div>
             
 
-            <div class="control has-icons-left">
-              <input class="input has-text-light has-background-dark" size="100" type="text" placeholder="Search for a game...">
-              <span class="icon is-left has-background-dark">
-                <i class="fa fa-magnifying-glass has-background-dark "></i>
-              </span>
+            <div class="search-box control has-icons-left">
 
-              <div class="filters hidden">
-                <input type="checkbox">
-                <input type="checkbox">
-                <input type="checkbox">
-              </div>
-            </div>
-
+                <div class="search-bar">
+                    <form action="/action_page.php">
+                        <input class="input has-text-light has-background-dark" type="text" placeholder="Search for a game...">
+                        <span class="icon is-left has-background-dark">
+                            <i class="fa fa-magnifying-glass has-background-dark"></i>
+                        </span>
+                    </form>
+                </div>
+                
             
 
-        </div>
-        <div class="topnav">
-            <a class="active" href="#home">Noobz</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-            <div class="search-container">
-              <form action="/action_page.php">
-                <input type="text" placeholder="Search.." name="search">
-                <button type="submit">Submit</button>
-              </form>
+            <div class="filters hidden">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
             </div>
-          </div>
-          
+
+            </div>
+        </nav>
     </section>
 </header>
 
