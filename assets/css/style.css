@@ -3,26 +3,33 @@
   margin: 0;
 
 }
+
 .noob {
   font-family: 'Press Start 2P', sans-serif;
   padding-left: 10px;
 }
-.title p {
-  width: 200px;
-  font-size: 8px;
-  font-weight: 800;
+
+.title {
+  padding-left: 10px;
+  width: 25vw;
 }
-.title p {
-  width: 200px;
-  font-size: 8px;
-  font-weight: 800;
+
+.title h1 {
+  text-align: center;
 }
 
 .title p {
-  width: 200px;
-  font-size: 8px;
-  font-weight: 800;
+  /* width: 200px; */
+  font-size: 10px;
+  text-align: center;
+  /* font-weight: 800; */
 }
+
+.coins{
+  color: gold;
+}
+
+
 
 body {
   background-color: #2a2a31;
@@ -33,7 +40,7 @@ padding-top: 20px;
 }
 
 .nav {
-  position: relative;
+  display: flex;
   width: 97%;
   justify-content: center;
 }
@@ -44,23 +51,31 @@ padding-top: 20px;
 
 /* search bar section  */
 
+:root {
+  --focused: #7b7b8f;
+  --unfocused: #494953;
+}
+
 .search-bar {
-  position: absolute;
-  left: 20%;
-  bottom: 50px;
-  width: 75vw;
+  width: 50vw;
+  margin: 0 auto;
 }
 
 .input{
   border: none;
   border-radius: 30px;
+  background-color: var(--unfocused)
 }
 
 .icon {
   border: none;
   border-radius: 30px;
+  background-color: var(--unfocused);
 }
 
+i {
+  background-color: var(--unfocused);
+}
 
 .control{
   margin: 0 auto;
