@@ -1,82 +1,66 @@
 * {
   padding: 0;
   margin: 0;
-  font-family: 'Press Start 2P', sans-serif;
+ 
 
+}
+.noob {
+  font-family: 'Press Start 2P', sans-serif;
+}
+.title p {
+  width: 200px;
+  font-size: 8px;
+  font-weight: 800;
+}
+.title p {
+  width: 200px;
+  font-size: 8px;
+  font-weight: 800;
+}
+
+.title p {
+  width: 200px;
+  font-size: 8px;
+  font-weight: 800;
 }
 
 body {
   background-color: #b0bec5;
 }
 
-#header{
-padding-top: 50px;
+.header{
+padding-top: 20px;
 }
 
-.topnav {
-  overflow: hidden;
-  background-color: #e9e9e9;
+.nav {
+  position: relative;
   width: 97%;
   justify-content: center;
-}
-
-.topnav a {
-  float: left;
-  display: block;
-  color: black;
-  text-align: center;
-  padding: 15px 15px;
-  text-decoration: none;
-  font-size: 20px;
-}
-
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.topnav a.active {
-  background-color: #2196F3;
-  color: white;
-}
-
-.topnav .search-container {
-  float: right;
-}
-
-.topnav input[type=text] {
-  padding: 6px;
-  margin-top: 8px;
-  font-size: 17px;
-  border: none;
-}
-
-.topnav .search-container button {
-  float: right;
-  padding: 6px;
-  margin-top: 8px;
-  margin-right: 16px;
-  background: #ddd;
-  font-size: 17px;
-  border: none;
-  cursor: pointer;
-}
-
-.topnav .search-container button:hover {
-  background: #ccc;
-}
-
-=======
-  background-color: hsl(0, 0%, 35%);
 }
 
 .hidden {
   display: none;
 }
 
+/* search bar section  */
+
+.search-bar {
+  position: absolute;
+  left: 20%;
+  bottom: 50px;
+  width: 75vw;
+}
+
 .input{
   border: none;
+  border-radius: 30px;
 }
+
+.icon {
+  border: none;
+  border-radius: 30px;
+}
+
 
 .control{
   margin: 0 auto;
