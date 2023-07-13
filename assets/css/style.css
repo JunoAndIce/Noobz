@@ -2,6 +2,7 @@
   padding: 0;
   margin: 0;
   font-family: 'Press Start 2P', sans-serif;
+
 }
 
 body {
@@ -63,5 +64,21 @@ padding-top: 50px;
 
 .topnav .search-container button:hover {
   background: #ccc;
+}
+
+=======
+  background-color: hsl(0, 0%, 35%);
+}
+
+.hidden {
+  display: none;
+}
+
+.input{
+  border: none;
+}
+
+.control{
+  margin: 0 auto;
 }
 

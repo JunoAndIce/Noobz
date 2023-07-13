@@ -14,14 +14,31 @@
 <header id="header">
     <!-- NEW SECTION -->
     <!-- https://bulma.io/documentation/layout/hero/ -->
-    <section>
-        <div>
-            <p id ='noob'>
-                Noobz
-            </p>
-            <p>
-            The encyclopedia of walkthroughs
-            </p>
+
+    <section class="hero is-info">
+        <div class="hero-body columns">
+
+          <div class="hero">
+            <h1 class="title has-text-light is-size-2">NOOBZ</h1>
+            <p class="subtitle">Your gaming walkthrough database</p>
+          </div>
+            
+
+            <div class="control has-icons-left">
+              <input class="input has-text-light has-background-dark" size="100" type="text" placeholder="Search for a game...">
+              <span class="icon is-left has-background-dark">
+                <i class="fa fa-magnifying-glass has-background-dark "></i>
+              </span>
+
+              <div class="filters hidden">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+              </div>
+            </div>
+
+            
+
         </div>
         <div class="topnav">
             <a class="active" href="#home">Noobz</a>
@@ -41,11 +58,11 @@
 <nav>
     <!-- NEW SECTION -->
     <!-- https://bulma.io/documentation/layout/container/ -->
-    <div class="container">
+    <!-- <div class="container">
         <div class="notification is-primary">
         This container is <strong>centered</strong> on desktop and larger viewports.
         </div>
-    </div>
+    </div> -->
 </nav>
 
 <main>
@@ -53,9 +70,9 @@
     <!-- NEW SECTION -->
     <!-- https://bulma.io/documentation/layout/section/ -->
     <section class="section">
-        <h1 class="title">Section</h1>
-        <h2 class="subtitle">
-        A simple container to divide your page into <strong>sections</strong>, like the one you're currently reading.
+        <h1 class="title has-text-light">Section</h1>
+        <h2 class="subtitle has-text-light">
+        A simple container to divide your page into <strong class="has-text-light">sections</strong>, like the one you're currently reading.
         </h2>
     </section>
         <!-- NEW SECTION -->
