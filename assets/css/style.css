@@ -4,33 +4,6 @@
 
 }
 
-.noob {
-  font-family: 'Press Start 2P', sans-serif;
-  padding-left: 10px;
-}
-
-.headerTitle {
-  padding-left: 10px;
-  /* width: 25vw; */
-}
-
-.headerTitle h1 {
-  text-align: center;
-}
-
-.headerTitle p {
-  /* width: 200px; */
-  font-size: 10px;
-  text-align: center;
-  /* font-weight: 800; */
-}
-
-.coins{
-  color: gold;
-}
-
-
-
 body {
   background-color: #2a2a31;
 }
@@ -46,6 +19,31 @@ margin-bottom: 100px;
   justify-content: center;
 }
 
+.noob {
+  font-family: 'Press Start 2P', sans-serif;
+  padding-left: 10px;
+}
+
+.headerTitle {
+  padding-left: 10px;
+}
+
+.headerTitle h1 {
+  text-align: center;
+}
+
+.headerTitle p {
+  font-size: 10px;
+  text-align: center;
+}
+
+.coins{
+  color: gold;
+}
+
+
+
+
 .hidden {
   display: none;
 }
@@ -58,14 +56,17 @@ margin-bottom: 100px;
 }
 
 .search-bar {
-  /* width: 20 */
-  margin: 0 auto;
+  width: 45vw;
 }
 
 .input{
   border: none;
   border-radius: 30px;
   background-color: var(--unfocused)
+}
+
+.input::placeholder{
+  color: #7b7b8f
 }
 
 .icon {
