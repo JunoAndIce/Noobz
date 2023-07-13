@@ -11,7 +11,7 @@
 
 .headerTitle {
   padding-left: 10px;
-  width: 25vw;
+  /* width: 25vw; */
 }
 
 .headerTitle h1 {
@@ -57,7 +57,7 @@ padding-top: 20px;
 }
 
 .search-bar {
-  width: 50vw;
+  /* width: 20 */
   margin: 0 auto;
 }
 
