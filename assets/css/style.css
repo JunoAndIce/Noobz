@@ -4,14 +4,29 @@
 
 }
 
+body {
+  background-color: #2a2a31;
+}
+
+
+/* Header section  */
+.header{
+padding-top: 20px;
+/* margin-bottom: 100px; */
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  flex-basis: content;
+}
+
 .noob {
   font-family: 'Press Start 2P', sans-serif;
-  padding-left: 10px;
 }
 
 .headerTitle {
-  padding-left: 10px;
-  /* width: 25vw; */
+  flex-basis: 25em;
 }
 
 .headerTitle h1 {
@@ -19,10 +34,8 @@
 }
 
 .headerTitle p {
-  /* width: 200px; */
   font-size: 10px;
   text-align: center;
-  /* font-weight: 800; */
 }
 
 .coins{
@@ -31,20 +44,6 @@
 
 
 
-body {
-  background-color: #2a2a31;
-}
-
-.header{
-padding-top: 20px;
-margin-bottom: 100px;
-}
-
-.nav {
-  display: flex;
-  width: 97%;
-  justify-content: center;
-}
 
 .hidden {
   display: none;
@@ -57,15 +56,28 @@ margin-bottom: 100px;
   --unfocused: #494953;
 }
 
-.search-bar {
-  /* width: 20 */
-  margin: 0 auto;
+.search-ctn {
+  display: flex;
+  justify-content: center;
+  flex-basis: 35em;
+  /* box-sizing: content-box; */
 }
 
 .input{
+
   border: none;
   border-radius: 30px;
-  background-color: var(--unfocused)
+  background-color: var(--unfocused);
+  width: 100%;
+}
+
+.input:focus{
+  color: #7b7b8f;
+  width: 100%;
+}
+
+.input::placeholder{
+  color: #7b7b8f
 }
 
 .icon {
@@ -80,6 +92,25 @@ i {
 
 .control{
   margin: 0 auto;
+  width: 100%;
+}
+
+h4{
+  font-size: 20px;
+}
+
+#searchButton {
+  position: absolute;
+  cursor: pointer;
+  border: none;
+  border-radius: 30px;
+  width: 20%;
+  height: 100%;
+  background-color: var(--unfocused);
+}
+
+#searchbar {
+  
 }
 
 footer {
