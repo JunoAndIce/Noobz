@@ -1,3 +1,4 @@
+
 let searchBar = document.querySelector('#SearchBar')
 let searchButton = document.querySelector('#searchButton')
 
@@ -16,6 +17,18 @@ searchButton.addEventListener('click', function() {
 
 
 
-//Type in search, then run through API
 
-// search submit 
+// Use RAWG API to attatch images to Popular games of month
+
+
+fetch(`https://api.rawg.io/api/games?key=${key}&dates=2023-06-01,2023-06-20&per_page=5&ordering=-added&`)
+.then(function(response){
+  return response.json();
+})
+.then(function (data) {
+  console.log(data);
+  data.array.forEach(popular => {
+    
+  });
+})
+.catch(error => console.log(error));
