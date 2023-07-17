@@ -18,6 +18,8 @@ function getTwitchAuthorization() {
     .then((data) => handleAuthorization(data));
 }
 
+
+
 function handleAuthorization(data) {
     let { access_token, expires_in, token_type } = data;
     BEARER_TOKEN = `Bearer ${access_token}`;
@@ -29,7 +31,7 @@ getTwitchAuthorization();
 searchButton.addEventListener('click', function() {
   
   fetch(
-    `https://api.twitch.tv/helix/games&name=${searchBar.value}`, { 
+    `https://api.twitch.tv/helix/games?name=${searchBar.value}`, { 
       method: 'GET',
       headers: {
         'Accept': 'application/json',
@@ -45,6 +47,26 @@ searchButton.addEventListener('click', function() {
     });
 })
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // RAWG API
 searchButton.addEventListener('click', function() {
   fetch(`https://api.rawg.io/api/games?key=87a21af0194d4db1a70bb42c6c104ebe&search=${searchBar.value}`, {
@@ -54,10 +76,18 @@ searchButton.addEventListener('click', function() {
     return response.json();
   })
   .then(function (data) {
-    console.log(data);
-  
+    console.log(data)
+  GameName = data.results[0].name;
+  getTwitchImg(GameName);
+  //return imglink;
   });
 })
+
+
+
+
+
+
 
 //! Popular game
 //This is where the name of popular games will go
@@ -273,8 +303,36 @@ fetch(`https://api.rawg.io/api/games?key=87a21af0194d4db1a70bb42c6c104ebe&search
   })
   .then(function (dataEdiOne) {
     data = console.log(dataEdiOne);
-    ediGameNameThree.textContent = dataEdiOne.results[0].name
+    //ediGameNameThree.textContent = dataEdiOne.results[0].name
     ediGameImgThree.src = dataEdiOne.results[0].background_image
 
 
   });
+
+
+
+
+
+  
+function getTwitchImg(imgUrl){
+  fetch(`https://api.twitch.tv/helix/games?name=${imgUrl}`, { 
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Authorization': BEARER_TOKEN,
+        "Client-Id": clientId,
+      },
+  })
+
+  .then(function(response){
+    return response.json();
+  }) 
+    .then(function(data) {
+      console.log(data);
+      console.log(data.data[0].box_art_url.slice(0,-21) + '.jpg');
+      let url = data.data[0].box_art_url.slice(0,-21) + '.jpg';
+    })
+    .catch(err => {
+        console.error(err);
+})
+}
