@@ -1,4 +1,5 @@
 let searchBar = document.querySelector('#SearchBar');
+let searchImg = document.querySelector('#search-img')
 let searchButton = document.querySelector('#searchButton');
 const key = `87a21af0194d4db1a70bb42c6c104ebe`;
 
@@ -18,8 +19,6 @@ function getTwitchAuthorization() {
     .then((data) => handleAuthorization(data));
 }
 
-
-
 function handleAuthorization(data) {
     let { access_token, expires_in, token_type } = data;
     BEARER_TOKEN = `Bearer ${access_token}`;
@@ -28,48 +27,10 @@ function handleAuthorization(data) {
 
 getTwitchAuthorization();
 
-searchButton.addEventListener('click', function() {
-  
-  fetch(
-    `https://api.twitch.tv/helix/games?name=${searchBar.value}`, { 
-      method: 'GET',
-      headers: {
-        'Accept': 'application/json',
-        'Authorization': BEARER_TOKEN,
-        "Client-Id": clientId,
-      },
-  })
-    .then(response => {
-        console.log(response.json());
-    })
-    .catch(err => {
-        console.error(err);
-    });
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // RAWG API
+// This code passes in the name of the search value to RAWG, to get the game that closely matches what was searched.
 searchButton.addEventListener('click', function() {
-  fetch(`https://api.rawg.io/api/games?key=87a21af0194d4db1a70bb42c6c104ebe&search=${searchBar.value}`, {
+  fetch(`https://api.rawg.io/api/games?key=87a21af0194d4db1a70bb42c6c104ebe&search=${searchBar.value}&search_precise`, {
     method: 'get'
   })
   .then(function(response){
@@ -79,17 +40,10 @@ searchButton.addEventListener('click', function() {
     console.log(data)
   GameName = data.results[0].name;
   getTwitchImg(GameName);
-  //return imglink;
   });
 })
 
-
-
-
-
-
-
-//! Popular game
+// ! MOST POPULAR GAMES 
 //This is where the name of popular games will go
 let popGameOneName = document.querySelector('#gameOneName')
 let popGameTwoName = document.querySelector('#gameTwoName');
@@ -110,6 +64,9 @@ let popGameSixImg = document.querySelector('#imgSix');
 let popGameSevenImg = document.querySelector('#imgSeven');
 let popGameEightImg = document.querySelector('#imgEight');
 
+
+
+// ! MOST POPULAR GAMES 
 // This is the code used to source the data for the most popular games
 fetch(`https://api.rawg.io/api/games?key=${key}&dates=2023-06-01,2023-06-20&per_page=5&ordering=-added&`)
 .then(function(response){
@@ -171,7 +128,7 @@ fetch(`https://api.rawg.io/api/games?key=${key}&dates=2023-06-01,2023-06-20&per_
 
 
 
-//! New game
+// ! NEW GAMES
 //This is where the name of new games will go
 let newGameOneName = document.querySelector('#newGameOneName')
 let newGameTwoName = document.querySelector('#newGameTwoName');
@@ -195,7 +152,7 @@ let newGameEightImg = document.querySelector('#imgEightNew');
 
 
 
-// This is the code used to source the data for the most popular games
+// This is the code used to source the data for the new games
 fetch(`https://api.rawg.io/api/games?key=${key}&dates=2023-01-01,2023-12-31&ordering=-rating`)
 .then(function(call){
   return call.json();
@@ -256,7 +213,7 @@ fetch(`https://api.rawg.io/api/games?key=${key}&dates=2023-01-01,2023-12-31&orde
 })
 .catch(error => console.log(error));
 
-//! Dev's choice
+// ! DEVS'S CHOICE GAMES (SITE DEVS)
 // Edi Game Name
 let ediGameNameOne = document.querySelector('#ediGameNameOne')
 let ediGameNameTwo = document.querySelector('#ediGameNameTwo')
@@ -313,7 +270,7 @@ fetch(`https://api.rawg.io/api/games?key=87a21af0194d4db1a70bb42c6c104ebe&search
 
 
 
-  
+// Gets the box_art_url from the name passed in from Rawg API
 function getTwitchImg(imgUrl){
   fetch(`https://api.twitch.tv/helix/games?name=${imgUrl}`, { 
       method: 'GET',
@@ -329,8 +286,10 @@ function getTwitchImg(imgUrl){
   }) 
     .then(function(data) {
       console.log(data);
-      console.log(data.data[0].box_art_url.slice(0,-21) + '.jpg');
-      let url = data.data[0].box_art_url.slice(0,-21) + '.jpg';
+      console.log(data.data[0].box_art_url.slice(0, -21) + '.jpg');
+
+      let url = data.data[0].box_art_url.slice(0, -21) + '.jpg';
+      searchImg.src = url;
     })
     .catch(err => {
         console.error(err);
