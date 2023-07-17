@@ -141,8 +141,8 @@ footer {
   overflow-x: auto;
   overscroll-behavior-inline: contain;
   padding-top: 20px;
-  height: 479px;
-    margin-bottom: -113px;
+  height: 500px;
+    margin-bottom: 0px;
     gap: 5px;
   }
   
