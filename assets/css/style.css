@@ -156,7 +156,8 @@ footer {
   
   img {
     height: 250px;
-    width: 250px;
+    /* width: 250px; */
+    object-fit: cover;
     max-width: 100%;
     margin-bottom: -13px;
   }
