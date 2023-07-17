@@ -73,48 +73,48 @@ fetch(`https://api.rawg.io/api/games?key=${key}&dates=2023-06-01,2023-06-20&per_
   let gameOneName = data.results[0].name;
   popGameOneName.textContent = gameOneName;
   popGameOneImg.src = gameOneImg;
-
+  
   //Game two image and name
   let gameTwoImg = data.results[1].background_image;
   let gameTwoName = data.results[1].name;
   popGameTwoName.textContent = gameTwoName;
   popGameTwoImg.src = gameTwoImg;
-
+  
   //Game three image and name
   let gameThreeImg = data.results[2].background_image;
   let gameThreeName = data.results[2].name;
   popGameThreeName.textContent = gameThreeName;
   popGameThreeImg.src = gameThreeImg;
-
+  
   //Game four image and name
   let gameFourImg = data.results[3].background_image;
   let gameFourName = data.results[3].name;
   popGameFourName.textContent = gameFourName;
   popGameFourImg.src = gameFourImg;
-
+  
   //Game five image and name
   let gameFiveImg = data.results[4].background_image;
   let gameFiveName = data.results[4].name;
   popGameFiveName.textContent = gameFiveName;
   popGameFiveImg.src = gameFiveImg;
-
+  
   //Game six image and name
   let gameSixImg = data.results[5].background_image;
   let gameSixName = data.results[5].name;
   popGameSixName.textContent = gameSixName;
   popGameSixImg.src = gameSixImg;
-
+  
   //Game seven image and name
   let gameSevenImg = data.results[6].background_image;
   let gameSevenName =data.results[6].name;
   popGameSevenName.textContent = gameSevenName;
   popGameSevenImg.src = gameSevenImg;
-
-//Game eight image and name
-let gameEightImg = data.results[7].background_image;
-let gameEightName = data.results[7].name
-popGameEightName.textContent = gameEightName
-popGameEightImg.src = gameEightImg;
+  
+  //Game eight image and name
+  let gameEightImg = data.results[7].background_image;
+  let gameEightName = data.results[7].name
+  popGameEightName.textContent = gameEightName
+  popGameEightImg.src = gameEightImg;
 })
 .catch(error => console.log(error));
 
@@ -153,56 +153,109 @@ fetch(`https://api.rawg.io/api/games?key=${key}&dates=2023-01-01,2023-12-31&orde
 })
 .then(function (input) {
   console.log(input);
-
-
-
+  
+  
+  
   // Game one
   let gameOneImgNew = input.results[0].background_image;
   let newGameNameOne = input.results[0].name;
   newGameOneImg.src = gameOneImgNew;
   newGameOneName.textContent = newGameNameOne;
-
+  
   // Game two
   let gameTwoImgNew = input.results[1].background_image;
   let newGameNameTwo = input.results[1].name;
   newGameTwoImg.src = gameTwoImgNew;
   newGameTwoName.textContent = newGameNameTwo;
-
+  
   // Game three
   let gameThreeImgNew = input.results[2].background_image;
   let newGameNameThree = input.results[2].name;
   newGameThreeImg.src = gameThreeImgNew;
   newGameThreeName.textContent = newGameNameThree;
-
-// Game four
-let gameFourImgNew = input.results[3].background_image;
-let newGameNameFour = input.results[3].name;
-newGameFourImg.src = gameFourImgNew;
-newGameFourName.textContent = newGameNameFour;
-
-// Game five
-let gameFiveImgNew = input.results[4].background_image;
-let newGameNameFive = input.results[4].name;
-newGameFiveImg.src = gameFiveImgNew;
-newGameFiveName.textContent = newGameNameFive;
-
-// Game six
-let gameSixImgNew = input.results[5].background_image;
-let newGameNameSix = input.results[5].name;
-newGameSixImg.src = gameSixImgNew;
-newGameSixName.textContent = newGameNameSix;
-
-// Game seven
-let gameSevenImgNew = input.results[6].background_image;
-let newGameNameSeven = input.results[6].name;
-newGameSevenImg.src = gameSevenImgNew;
-newGameSevenName.textContent = newGameNameSeven;
-
-// Game seven
-let gameEightImgNew = input.results[7].background_image;
-let newGameNameEight = input.results[7].name;
-newGameEightImg.src = gameEightImgNew;
-newGameEightName.textContent = newGameNameEight;
-
+  
+  // Game four
+  let gameFourImgNew = input.results[3].background_image;
+  let newGameNameFour = input.results[3].name;
+  newGameFourImg.src = gameFourImgNew;
+  newGameFourName.textContent = newGameNameFour;
+  
+  // Game five
+  let gameFiveImgNew = input.results[4].background_image;
+  let newGameNameFive = input.results[4].name;
+  newGameFiveImg.src = gameFiveImgNew;
+  newGameFiveName.textContent = newGameNameFive;
+  
+  // Game six
+  let gameSixImgNew = input.results[5].background_image;
+  let newGameNameSix = input.results[5].name;
+  newGameSixImg.src = gameSixImgNew;
+  newGameSixName.textContent = newGameNameSix;
+  
+  // Game seven
+  let gameSevenImgNew = input.results[6].background_image;
+  let newGameNameSeven = input.results[6].name;
+  newGameSevenImg.src = gameSevenImgNew;
+  newGameSevenName.textContent = newGameNameSeven;
+  
+  // Game seven
+  let gameEightImgNew = input.results[7].background_image;
+  let newGameNameEight = input.results[7].name;
+  newGameEightImg.src = gameEightImgNew;
+  newGameEightName.textContent = newGameNameEight;
+  
 })
 .catch(error => console.log(error));
+
+//! Dev's choice
+// Edi Game Name
+let ediGameNameOne = document.querySelector('#ediGameNameOne')
+let ediGameNameTwo = document.querySelector('#ediGameNameTwo')
+let ediGameNameThree = document.querySelector('#ediGameNameThree')
+//Edi Game Img
+let ediGameImgOne = document.querySelector('#ediGameImgOne')
+let ediGameImgTwo = document.querySelector('#ediGameImgTwo')
+let ediGameImgThree = document.querySelector('#ediGameImgThree')
+
+
+fetch(`https://api.rawg.io/api/games?key=87a21af0194d4db1a70bb42c6c104ebe&search=Smash Bros Ultimate`, {
+    method: 'get'
+  })
+  .then(function(responseEdiOne){
+    return responseEdiOne.json();
+  })
+  .then(function (dataEdiOne) {
+    data = console.log(dataEdiOne);
+    ediGameNameOne.textContent = dataEdiOne.results[0].name
+    ediGameImgOne.src = dataEdiOne.results[0].background_image
+
+
+  });
+
+  fetch(`https://api.rawg.io/api/games?key=87a21af0194d4db1a70bb42c6c104ebe&search=Pokemon Heart Gold`, {
+    method: 'get'
+  })
+  .then(function(responseEdiOne){
+    return responseEdiOne.json();
+  })
+  .then(function (dataEdiOne) {
+    data = console.log(dataEdiOne);
+    ediGameNameTwo.textContent = dataEdiOne.results[13].name
+    ediGameImgTwo.src = dataEdiOne.results[13].background_image
+
+
+  });
+
+  fetch(`https://api.rawg.io/api/games?key=87a21af0194d4db1a70bb42c6c104ebe&search=Monster+Hunter+Rise`, {
+    method: 'get'
+  })
+  .then(function(responseEdiOne){
+    return responseEdiOne.json();
+  })
+  .then(function (dataEdiOne) {
+    data = console.log(dataEdiOne);
+    ediGameNameThree.textContent = dataEdiOne.results[0].name
+    ediGameImgThree.src = dataEdiOne.results[0].background_image
+
+
+  });
