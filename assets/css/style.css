@@ -8,7 +8,7 @@ body {
   background-color: #2a2a31;
   background-image: linear-gradient(to bottom, transparent, #2a2a31),
   url("Backdrop.jpg");
-  background-size: 100% 25%;
+  background-size: 100% 30%;
   background-repeat: no-repeat;
 }
 
@@ -69,6 +69,7 @@ body {
   display: flex;
   justify-content: center;
   margin: 0 auto;
+  opacity: 0.86;
 }
 
 .input{
@@ -87,7 +88,7 @@ body {
 }
 
 .input::placeholder{
-  color: #7b7b8f
+  color: var(--focused);
 }
 
 .icon {
@@ -120,10 +121,13 @@ body {
   display: flex;
   gap: 30px;
   width: 55vw;
-  background-color: #494953;
+  background-color: var(--unfocused);
+  opacity: 0.86;  
   padding: 20px;
   border-radius: 30px;
 }
+
+dis
 
 #search-img {
   border-radius: 30px;
@@ -151,10 +155,12 @@ body {
 }
 
 #finalBtn {
+  cursor: pointer;
   padding: 20px;
   border: 2px solid; 
   background-color: #7b7b8f;
   border-radius: 30px;
+  
 }
 
 

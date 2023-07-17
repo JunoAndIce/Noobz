@@ -1,7 +1,7 @@
 let searchBar = document.querySelector('#SearchBar');
 let searchImg = document.querySelector('#search-img')
 let searchButton = document.querySelector('#searchButton');
-const key = `87a21af0194d4db1a70bb42c6c104ebe`;
+const key = `962935bac7e14d23964ca9952dc39e13`;
 
 // Credits DevsDash
 // TWITCH AND IGDB API
@@ -30,7 +30,7 @@ getTwitchAuthorization();
 // RAWG API
 // This code passes in the name of the search value to RAWG, to get the game that closely matches what was searched.
 searchButton.addEventListener('click', function() {
-  fetch(`https://api.rawg.io/api/games?key=87a21af0194d4db1a70bb42c6c104ebe&search=${searchBar.value}&search_precise`, {
+  fetch(`https://api.rawg.io/api/games?key=${key}&search=${searchBar.value}&search_precise`, {
     method: 'get'
   })
   .then(function(response){
@@ -40,6 +40,8 @@ searchButton.addEventListener('click', function() {
     console.log(data)
   GameName = data.results[0].name;
   getTwitchImg(GameName);
+
+  // console.log(getTwitchImg(GameName));
   });
 })
 
@@ -64,71 +66,76 @@ let popGameSixImg = document.querySelector('#imgSix');
 let popGameSevenImg = document.querySelector('#imgSeven');
 let popGameEightImg = document.querySelector('#imgEight');
 
+let GameNames = [];
+
 
 
 // ! MOST POPULAR GAMES 
+// !! NEED HELP HERE (Edi)
+// !!! I found a way to get the twitch image onto the specific slot. We'll pass the URL into an array and then use the array to name the individual slots. The problem I'm running into is that more than one call to getTwitchImg breaks the ordering in the array. and the image and title no longer line up. Try it by uncommenting all the code in SetData and see how it's formatted on the site. Any help to fix this is appreciated.
 // This is the code used to source the data for the most popular games
-fetch(`https://api.rawg.io/api/games?key=${key}&dates=2023-06-01,2023-06-20&per_page=5&ordering=-added&`)
+fetch(`https://api.rawg.io/api/games?key=${key}&dates=2023-05-01,2023-06-20&per_page=5&ordering=-rating&`)
 .then(function(response){
   return response.json();
 })
 .then(function (data) {
   console.log(data);
-  //Game One Image and name
-  let gameOneImg = data.results[0].background_image;
-  let gameOneName = data.results[0].name;
-  popGameOneName.textContent = gameOneName;
-  popGameOneImg.src = gameOneImg;
-  
-  //Game two image and name
-  let gameTwoImg = data.results[1].background_image;
-  let gameTwoName = data.results[1].name;
-  popGameTwoName.textContent = gameTwoName;
-  popGameTwoImg.src = gameTwoImg;
-  
-  //Game three image and name
-  let gameThreeImg = data.results[2].background_image;
-  let gameThreeName = data.results[2].name;
-  popGameThreeName.textContent = gameThreeName;
-  popGameThreeImg.src = gameThreeImg;
-  
-  //Game four image and name
-  let gameFourImg = data.results[3].background_image;
-  let gameFourName = data.results[3].name;
-  popGameFourName.textContent = gameFourName;
-  popGameFourImg.src = gameFourImg;
-  
-  //Game five image and name
-  let gameFiveImg = data.results[4].background_image;
-  let gameFiveName = data.results[4].name;
-  popGameFiveName.textContent = gameFiveName;
-  popGameFiveImg.src = gameFiveImg;
-  
-  //Game six image and name
-  let gameSixImg = data.results[5].background_image;
-  let gameSixName = data.results[5].name;
-  popGameSixName.textContent = gameSixName;
-  popGameSixImg.src = gameSixImg;
-  
-  //Game seven image and name
-  let gameSevenImg = data.results[6].background_image;
-  let gameSevenName =data.results[6].name;
-  popGameSevenName.textContent = gameSevenName;
-  popGameSevenImg.src = gameSevenImg;
-  
-  //Game eight image and name
-  let gameEightImg = data.results[7].background_image;
-  let gameEightName = data.results[7].name
-  popGameEightName.textContent = gameEightName
-  popGameEightImg.src = gameEightImg;
+
+  setData(data);
 })
 .catch(error => console.log(error));
 
 
+function setData(data) {
+    //Game One Image and name
+    popGameOneName.textContent = data.results[0].name;
+    getTwitchImg( data.results[0].name);
+  
+    // //Game two image and name
+    // popGameTwoName.textContent = data.results[1].name;
+    // getTwitchImg(data.results[1].name);
+  
+    // //Game three image and name
+    // popGameThreeName.textContent = data.results[2].name;
+    // getTwitchImg( data.results[2].name);
+  
+    // //Game four image and name
+    // popGameFourName.textContent = data.results[3].name;
+    // getTwitchImg( data.results[3].name);
+  
+    // //Game five image and name
+  
+    // popGameFiveName.textContent = data.results[4].name;
+    // getTwitchImg( data.results[4].name);
+  
+    // //Game six image and name
+    // popGameSixName.textContent = data.results[5].name;
+    // getTwitchImg( data.results[5].name);
+  
+    // //Game seven image and name
+    // popGameSevenName.textContent = data.results[6].name;
+    // getTwitchImg( data.results[6].name);
+  
+    // //Game eight image and name
+    // popGameEightName.textContent = data.results[7].name;
+    // getTwitchImg( data.results[7].name);
+}
+
+
+function setImage(){
+  popGameOneImg.src = GameNames[0];
+  // popGameTwoImg.src = GameNames[1];
+  // popGameThreeImg.src = GameNames[2];
+  // popGameFourImg.src = GameNames[3];
+  // popGameFiveImg.src = GameNames[4];
+  // popGameSixImg.src = GameNames[5];
+  // popGameSevenImg.src = GameNames[6];
+  // popGameEightImg.src = GameNames[7];
+}
 
 
 
-// ! NEW GAMES
+// ! HIGHEST RATED GAMES 
 //This is where the name of new games will go
 let newGameOneName = document.querySelector('#newGameOneName')
 let newGameTwoName = document.querySelector('#newGameTwoName');
@@ -153,7 +160,7 @@ let newGameEightImg = document.querySelector('#imgEightNew');
 
 
 // This is the code used to source the data for the new games
-fetch(`https://api.rawg.io/api/games?key=${key}&dates=2023-01-01,2023-12-31&ordering=-rating`)
+fetch(`https://api.rawg.io/api/games?key=${key}&dates=2022-10-01,2023-12-31&ordering=-metacritic`)
 .then(function(call){
   return call.json();
 })
@@ -224,7 +231,7 @@ let ediGameImgTwo = document.querySelector('#ediGameImgTwo')
 let ediGameImgThree = document.querySelector('#ediGameImgThree')
 
 
-fetch(`https://api.rawg.io/api/games?key=87a21af0194d4db1a70bb42c6c104ebe&search=Smash Bros Ultimate`, {
+fetch(`https://api.rawg.io/api/games?key=${key}&search=Smash Bros Ultimate`, {
     method: 'get'
   })
   .then(function(responseEdiOne){
@@ -238,7 +245,7 @@ fetch(`https://api.rawg.io/api/games?key=87a21af0194d4db1a70bb42c6c104ebe&search
 
   });
 
-  fetch(`https://api.rawg.io/api/games?key=87a21af0194d4db1a70bb42c6c104ebe&search=Pokemon Heart Gold`, {
+  fetch(`https://api.rawg.io/api/games?key=${key}&search=Pokemon Heart Gold`, {
     method: 'get'
   })
   .then(function(responseEdiOne){
@@ -252,7 +259,7 @@ fetch(`https://api.rawg.io/api/games?key=87a21af0194d4db1a70bb42c6c104ebe&search
 
   });
 
-  fetch(`https://api.rawg.io/api/games?key=87a21af0194d4db1a70bb42c6c104ebe&search=Monster+Hunter+Rise`, {
+  fetch(`https://api.rawg.io/api/games?key=${key}&search=Monster+Hunter+Rise`, {
     method: 'get'
   })
   .then(function(responseEdiOne){
@@ -272,6 +279,7 @@ fetch(`https://api.rawg.io/api/games?key=87a21af0194d4db1a70bb42c6c104ebe&search
 
 // Gets the box_art_url from the name passed in from Rawg API
 function getTwitchImg(imgUrl){
+  var url = '';
   fetch(`https://api.twitch.tv/helix/games?name=${imgUrl}`, { 
       method: 'GET',
       headers: {
@@ -284,12 +292,11 @@ function getTwitchImg(imgUrl){
   .then(function(response){
     return response.json();
   }) 
-    .then(function(data) {
-      console.log(data);
-      console.log(data.data[0].box_art_url.slice(0, -21) + '.jpg');
-
-      let url = data.data[0].box_art_url.slice(0, -21) + '.jpg';
-      searchImg.src = url;
+  .then(data => {
+    GameNames.push(data.data[0].box_art_url.slice(0, -21) + '.jpg');
+    console.log(GameNames);
+    setImage();
+    return data.data[0].box_art_url.slice(0, -21) + '.jpg';
     })
     .catch(err => {
         console.error(err);
