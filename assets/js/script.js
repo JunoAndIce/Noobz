@@ -2,23 +2,55 @@ let searchBar = document.querySelector('#SearchBar');
 let searchButton = document.querySelector('#searchButton');
 const key = `87a21af0194d4db1a70bb42c6c104ebe`;
 
+// Credits DevsDash
+// TWITCH AND IGDB API
+let clinetId = "khjpxtyrtphezuq89v5w8idi18vc5q";
+let clinetSecret = "gook6vab7f8anquexg485ypn6swczr";
+let BEARER_TOKEN = '';
 
-/*searchButton.addEventListener('click', function() {
-  fetch('https://api.rawg.io/api/platforms?key=87a21af0194d4db1a70bb42c6c104ebe', {
-    method: 'get'
-  })
-  .then(function(response){
-    return response.json();
-  })
-  .then(function (data) {
-    console.log(data);
+function getTwitchAuthorization() {
+    let url = `https://id.twitch.tv/oauth2/token?client_id=${clinetId}&client_secret=${clinetSecret}&grant_type=client_credentials`;
+
+    fetch(url, {
+    method: "POST",
+    })
+    .then((res) => res.json())
+    .then((data) => handleAuthorization(data));
+}
+
+function handleAuthorization(data) {
+    let { access_token, expires_in, token_type } = data;
+    BEARER_TOKEN = `Bearer ${access_token}`;
+    console.log(`${token_type} ${access_token}`);
+}
+
+getTwitchAuthorization();
+
+searchButton.addEventListener('click', function() {
   
-  });
-})*/
+  fetch(
+    "https://api.igdb.com/v4/games",
+    { method: 'GET',
+    
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Accept': 'application/json',
+        'Client-ID': 'khjpxtyrtphezuq89v5w8idi18vc5q',
+        'Authorization': BEARER_TOKEN,
+        
+      },
+      data: "fields age_ratings,aggregated_rating,aggregated_rating_count,alternative_names,artworks,bundles,category,checksum,collection,cover,created_at,dlcs,expanded_games,expansions,external_games,first_release_date,follows,forks,franchise,franchises,game_engines,game_localizations,game_modes,genres,hypes,involved_companies,keywords,language_supports,multiplayer_modes,name,parent_game,platforms,player_perspectives,ports,rating,rating_count,release_dates,remakes,remasters,screenshots,similar_games,slug,standalone_expansions,status,storyline,summary,tags,themes,total_rating,total_rating_count,updated_at,url,version_parent,version_title,videos,websites;"
+  })
+    .then(response => {
+        console.log(response.json());
+    })
+    .catch(err => {
+        console.error(err);
+    });
+  
+})
 
-
-
-
+// RAWG API
 searchButton.addEventListener('click', function() {
   fetch(`https://api.rawg.io/api/games?key=87a21af0194d4db1a70bb42c6c104ebe&search=${searchBar.value}`, {
     method: 'get'
@@ -31,14 +63,6 @@ searchButton.addEventListener('click', function() {
   
   });
 })
-
-
-
-
-
-
-
-
 
 //! Popular game
 //This is where the name of popular games will go
