@@ -18,7 +18,8 @@ body {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 10px
+  gap: 10px;
+  margin-bottom: -58px;
 }
 
 .noob {
@@ -124,8 +125,85 @@ footer {
   background-color: #7b7b8f;
   padding-top: 20px;
   padding-bottom: 20px;
-  margin-top: 200px;
+  margin-top: 120px;
   color: #f1f1f1;
   text-align: center;
 }
 
+
+/* Code to make scroll bar*/
+
+.scrolling-wrapper {
+  display: grid;
+  
+  grid-auto-flow: column;
+  grid-auto-columns: 17%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  padding-top: 20px;
+  height: 479px;
+    margin-bottom: -113px;
+    gap: 5px;
+  }
+  
+  .cardClass {
+    display: inline;
+    height: 450px;
+    width: 250px;
+    
+    margin: 2px;
+  }
+  
+  img {
+    height: 250px;
+    width: 250px;
+    max-width: 100%;
+    margin-bottom: -13px;
+  }
+  
+  .fontNew{
+    font-size: 10px;
+    margin-left: -20px;
+    margin-right: -20px;
+    margin-bottom: -10px;
+  }
+  
+
+
+ 
+
+  @media screen and (max-width: 1461px){
+    .scrolling-wrapper {
+      grid-auto-columns:22%;
+      }
+
+  }
+  @media screen and (max-width: 1160px){
+    .scrolling-wrapper {
+      grid-auto-columns:27%;
+      }
+  }
+  @media screen and (max-width: 950px){
+    .scrolling-wrapper {
+      grid-auto-columns:30%;
+      }
+  }
+  @media screen and (max-width: 850px){
+    .scrolling-wrapper {
+      grid-auto-columns:35%;
+      
+      }
+  }
+  @media screen and (max-width: 650px){
+    .scrolling-wrapper {
+      grid-auto-columns: 47%;
+      }
+  }
+  @media screen and (max-width: 550px){
+    .scrolling-wrapper {
+      display: grid;
+      
+      grid-auto-flow: column;
+      grid-auto-columns: 49%;
+      }
+  }

@@ -129,6 +129,9 @@ fetch(`https://api.rawg.io/api/games?key=${key}&dates=2023-01-01,2023-12-31&orde
 })
 .then(function (input) {
   console.log(input);
+
+
+
   // Game one
   let gameOneImgNew = input.results[0].background_image;
   let newGameNameOne = input.results[0].name;
