@@ -126,13 +126,13 @@ fetch(`https://api.rawg.io/api/games?key=${key}&dates=2022-10-01,2023-04-01&orde
   .then(function (call) {
     return call.json();
   })
-  .then(function (input) {
+  .then(async function (input) {
     for(let i = 0; i < HighGame.length; i++){
       console.log(getTwitchArrayImg(data.results[i].name))
       HighGameImg[i].src =  await getTwitchArrayImgHigh(data.results[i].name, i);
     console.log(input);
     }
-/*
+
     // Game one
     getTwitchImgRated(input.results[0].name);
 
@@ -140,38 +140,38 @@ fetch(`https://api.rawg.io/api/games?key=${key}&dates=2022-10-01,2023-04-01&orde
   .catch(error => console.log(error));
 
 
-// ! DEVS'S CHOICE GAMES (SITE DEVS)
-fetch(`https://api.rawg.io/api/games?key=${key}&search=Smash+Bros+Ultimate`, {
-  method: 'get'
-})
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    // console.log(data);
-  });
+// // ! DEVS'S CHOICE GAMES (SITE DEVS)
+// fetch(`https://api.rawg.io/api/games?key=${key}&search=Smash+Bros+Ultimate`, {
+//   method: 'get'
+// })
+//   .then(function (response) {
+//     return response.json();
+//   })
+//   .then(function (data) {
+//     // console.log(data);
+//   });
 
-fetch(`https://api.rawg.io/api/games?key=${key}&search=Pokemon+Emerald`, {
-  method: 'get'
-})
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    // console.log(data);
-    // console.log(data.results[13].name.slice(0, -12));
-  });
+// fetch(`https://api.rawg.io/api/games?key=${key}&search=Pokemon+Emerald`, {
+//   method: 'get'
+// })
+//   .then(function (response) {
+//     return response.json();
+//   })
+//   .then(function (data) {
+//     // console.log(data);
+//     // console.log(data.results[13].name.slice(0, -12));
+//   });
 
 
-fetch(`https://api.rawg.io/api/games?key=${key}&search=Monster+Hunter+Rise`, {
-  method: 'get'
-})
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    // console.log(data);
-  });
+// fetch(`https://api.rawg.io/api/games?key=${key}&search=Monster+Hunter+Rise`, {
+//   method: 'get'
+// })
+//   .then(function (response) {
+//     return response.json();
+//   })
+//   .then(function (data) {
+//     // console.log(data);
+//   });
 
 
 
@@ -255,8 +255,8 @@ function getTwitchArrayImg(imgUrl, i) {
       if (featureGameImg[i].src === "https://bulma.io/images/placeholders/480x640.png") {
         featureGameImg[i].src = imageUrl;
       }
-
-
+    })
+  }
 var YTKey = '';
 
 
@@ -268,7 +268,8 @@ fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${searchB
     console.log(data)
   })
 
-/*function getVideo(videoId){
-url = `https://www.youtube.com/watch?v=${videoId}`
 
-}*/
+// function getVideo(videoId){
+// url = `https://www.youtube.com/watch?v=${videoId}`
+
+// }
