@@ -178,7 +178,7 @@ fetch(`https://api.rawg.io/api/games?key=${key}&search=Pokemon+Heart+Gold`, {
     return response.json();
   })
   .then(function (data) {
-    console.log(data);
+    // console.log(data);
     // console.log(data.results[13].name.slice(0, -12));
     getTwitchImgChoice(data.results[13].name.slice(0, -12));
   });
@@ -328,6 +328,8 @@ function getTwitchImgChoice(imgUrl) {
       // console.log(devChoiceGames);
       setImageChoice();
       return data;
+    })
+  }
 
 var YTKey = 'AIzaSyDREmzG-bOOS6NnjO5AGdNEO0AdK9ESD4Y';
   
@@ -339,7 +341,6 @@ var YTKey = 'AIzaSyDREmzG-bOOS6NnjO5AGdNEO0AdK9ESD4Y';
   .then(function(data){
   console.log(data.items[0].id.videoId)
   })
-})
 
 function getVideo(videoId){
 url = `https://www.youtube.com/watch?v=${videoId}`
