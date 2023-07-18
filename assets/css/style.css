@@ -117,15 +117,7 @@ body {
   color: #f1f1f1;
 }
 
-.searchFunc {
-  display: flex;
-  gap: 30px;
-  width: 55vw;
-  background-color: var(--unfocused);
-  opacity: 0.86;  
-  padding: 20px;
-  border-radius: 30px;
-
+.videoFunc {
   display: none;
 }
 
@@ -168,6 +160,7 @@ body {
 .hoverButton {
   margin: 10px;
   border: none;
+  cursor: pointer;
 }
 
 
