@@ -329,24 +329,19 @@ function getTwitchImgChoice(imgUrl) {
       setImageChoice();
       return data;
 
-    })
-    .catch(err => {
-      console.error(err);
-    })
-}
-
-
 var YTKey = 'AIzaSyDREmzG-bOOS6NnjO5AGdNEO0AdK9ESD4Y';
+  
 
-searchButton.addEventListener('click', () => {
-
-  const keyWords = ['walk through', 'game play',]
-
-  fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${searchBar.value}&type=video&maxResults=3&order=rating&key=${YTKey}`)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      console.log(data)
-    })
+  fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${searchBar.value}walkthrough&type=video&maxResults=3&order=rating&key=${YTKey}`)
+  .then(function(response){
+    return response.json();
+  })
+  .then(function(data){
+  console.log(data.items[0].id.videoId)
+  })
 })
+
+function getVideo(videoId){
+url = `https://www.youtube.com/watch?v=${videoId}`
+
+}
