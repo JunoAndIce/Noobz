@@ -42,25 +42,25 @@ searchButton.addEventListener('click', function () {
   fetch(`https://api.rawg.io/api/games?key=${key}&search=${searchBar.value}&search_precise`, {
     method: 'get'
   })
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    console.log(data)
-    GameName = data.results[0].name;
-    getTwitchImg(GameName);
-    
-    //  console.log(getTwitchImg(GameName));
-  });
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data)
+      GameName = data.results[0].name;
+      getTwitchImg(GameName);
+
+      //  console.log(getTwitchImg(GameName));
+    });
 })
 
-$(function() {
-  $(".SearchBar").focusin(function() {
-    $(".searchFunc").show();
-  }).focusout(function () {
-    $(".searchFunc").hide();
-  });
+$('.SearchBar').keyup(function(){
+  if($(this).val().length)
+    $('.searchFunc').show();
+  else
+    $('.searchFunc').hide();
 });
+
 /*
 // ! MOST POPULAR GAMES 
 //This is where the image of popular games will go
@@ -94,9 +94,9 @@ let devChoiceSeven = document.querySelector('#pabloGameImgOne')
 let devChoiceEight = document.querySelector('#pabloGameImgTwo')
 let devChoiceNine = document.querySelector('#pabloGameImgThree')
 */
-let featuredGames = [];
-let RatedGames = [];
-let devChoiceGames = [];
+// let featuredGames = [];
+// let RatedGames = [];
+// let devChoiceGames = [];
 
 
 
@@ -104,40 +104,16 @@ let devChoiceGames = [];
 // !! ONLY GRABS IMAGE NAME FOR TOP 8 GAMES
 // This is the code used to source the data for the most popular games
 fetch(`https://api.rawg.io/api/games?key=${key}&dates=2023-05-01,2023-07-18&per_page=5&ordering=-metacritic&`)
-.then(function (response) {
-  return response.json();
-})
-.then(async function (data) {
-  console.log(data);
-  for(let i = 0; i < featureGame.length; i++){
-    console.log(getTwitchArrayImg(data.results[i].name))
-    featureGameImg[i].src = await getTwitchArrayImg(data.results[i].name, i);
-  };
-  
-  /*Game One Image and name
-  getTwitchImgFeat(data.results[0].name);
-  
-  //Game two image and name
-  getTwitchImgFeat(data.results[1].name);
-  
-    //Game three image and name
-    getTwitchImgFeat(data.results[2].name);
-
-    //Game four image and name
-    getTwitchImgFeat(data.results[3].name);
-
-    //Game five image and name
-    getTwitchImgFeat(data.results[4].name);
-
-    //Game six image and name
-    getTwitchImgFeat(data.results[5].name);
-
-    //Game seven image and name
-    getTwitchImgFeat(data.results[6].name);
-    
-
-    //Game eight image and name
-    getTwitchImgFeat(data.results[7].name);*/
+  .then(function (response) {
+    return response.json();
+  })
+  .then(async function (data) {
+    console.log(data);
+    for (let i = 0; i < featureGame.length; i++) {
+      // console.log(getTwitchArrayImg(data.results[i].name))
+      featureGameImg[i].setAttribute("data", data.results[i].name) 
+      getTwitchArrayImg(data.results[i].name, i);
+    }
   })
   .catch(error => console.log(error));
 
@@ -150,34 +126,9 @@ fetch(`https://api.rawg.io/api/games?key=${key}&dates=2022-10-01,2023-04-01&orde
   })
   .then(function (input) {
     // console.log(input);
-/*
-    // Game one
-    getTwitchImgRated(input.results[0].name);
 
-    // Game two
-    getTwitchImgRated(input.results[1].name);
-
-    // Game three
-    getTwitchImgRated(input.results[2].name);
-
-    // Game four
-    getTwitchImgRated(input.results[3].name);
-
-    // Game five
-    getTwitchImgRated(input.results[4].name);
-
-    // Game six
-    getTwitchImgRated(input.results[5].name);
-
-    // Game seven
-    getTwitchImgRated(input.results[6].name);
-
-    // Game seven
-    getTwitchImgRated(input.results[7].name);
-*/
   })
   .catch(error => console.log(error));
-
 
 
 // ! DEVS'S CHOICE GAMES (SITE DEVS)
@@ -189,9 +140,7 @@ fetch(`https://api.rawg.io/api/games?key=${key}&search=Smash+Bros+Ultimate`, {
   })
   .then(function (data) {
     // console.log(data);
-    getTwitchImgChoice(data.results[0].name);
   });
-
 
 fetch(`https://api.rawg.io/api/games?key=${key}&search=Pokemon+Emerald`, {
   method: 'get'
@@ -202,10 +151,7 @@ fetch(`https://api.rawg.io/api/games?key=${key}&search=Pokemon+Emerald`, {
   .then(function (data) {
     // console.log(data);
     // console.log(data.results[13].name.slice(0, -12));
-    getTwitchImgChoice(data.results[13].name.slice(0, -12));
   });
-
-  
 
 
 fetch(`https://api.rawg.io/api/games?key=${key}&search=Monster+Hunter+Rise`, {
@@ -216,13 +162,10 @@ fetch(`https://api.rawg.io/api/games?key=${key}&search=Monster+Hunter+Rise`, {
   })
   .then(function (data) {
     // console.log(data);
-    getTwitchImgChoice(data.results[0].name);
-
-
-
-
   });
-    
+
+
+
 /*
 function setImageFeat() {
 
@@ -262,7 +205,6 @@ function setImageChoice() {
 
 // Gets the box_art_url from the name passed in from Rawg API
 function getTwitchImg(imgUrl) {
-  var url = '';
   fetch(`https://api.twitch.tv/helix/games?name=${imgUrl}`, {
     method: 'GET',
     headers: {
@@ -276,7 +218,7 @@ function getTwitchImg(imgUrl) {
       return response.json();
     })
     .then(data => {
-      var imageUrl = data.data[0].box_art_url.slice(0, -21) + '.jpg'; 
+      var imageUrl = data.data[0].box_art_url.slice(0, -21) + '.jpg';
       searchImg.src = data.data[0].box_art_url.slice(0, -21) + '.jpg';
       return imageUrl;
     })
@@ -284,8 +226,8 @@ function getTwitchImg(imgUrl) {
       console.error(err);
     })
 }
+
 function getTwitchArrayImg(imgUrl, i) {
-  var url = '';
   fetch(`https://api.twitch.tv/helix/games?name=${imgUrl}`, {
     method: 'GET',
     headers: {
@@ -300,100 +242,27 @@ function getTwitchArrayImg(imgUrl, i) {
     })
     .then(data => {
       console.log(data)
-      var imageUrl = data.data[0].box_art_url.slice(0, -21) + '.jpg'; 
-     //searchImg.src = data.data[0].box_art_url.slice(0, -21) + '.jpg';
-     featureGameImg[i].src = imageUrl;
+      var imageUrl = data.data[0].box_art_url.slice(0, -21) + '.jpg';
+      if (featureGameImg[i].src === "https://bulma.io/images/placeholders/480x640.png") {
+        featureGameImg[i].src = imageUrl;
+      }
+      
       return imageUrl;
     })
     .catch(err => {
       console.error(err);
     })
 }
-// Gets the box_art_url from the name passed in from Rawg API
-function getTwitchImgFeat(imgUrl) {
-  var url = '';
-  fetch(`https://api.twitch.tv/helix/games?name=${imgUrl}`, {
-    method: 'GET',
-    headers: {
-      'Accept': 'application/json',
-      'Authorization': BEARER_TOKEN,
-      "Client-Id": clientId,
-    },
-  })
-
-    .then(function (response) {
-      return response.json();
-    })
-    .then(data => {
-      featuredGames.push(data.data[0].box_art_url.slice(0, -21) + '.jpg');
-      // console.log(featuredGames);
-      setImageFeat();
-      return data;
-    })
-    .catch(err => {
-      console.error(err);
-    })
-}
-// Gets the box_art_url from the name passed in from Rawg API
-function getTwitchImgRated(imgUrl) {
-  var url = '';
-  fetch(`https://api.twitch.tv/helix/games?name=${imgUrl}`, {
-    method: 'GET',
-    headers: {
-      'Accept': 'application/json',
-      'Authorization': BEARER_TOKEN,
-      "Client-Id": clientId,
-    },
-  })
-
-    .then(function (response) {
-      return response.json();
-    })
-    .then(data => {
-      RatedGames.push(data.data[0].box_art_url.slice(0, -21) + '.jpg');
-      // console.log(RatedGames);
-      setImageRated();
-      return data;
-    })
-    .catch(err => {
-      console.error(err);
-    })
-}
-// Gets the box_art_url from the name passed in from Rawg API
-function getTwitchImgChoice(imgUrl) {
-  var url = '';
-  fetch(`https://api.twitch.tv/helix/games?name=${imgUrl}`, {
-    method: 'GET',
-    headers: {
-      'Accept': 'application/json',
-      'Authorization': BEARER_TOKEN,
-      "Client-Id": clientId,
-    },
-  })
-    .then(function (response) {
-      return response.json();
-
-    })
-    .then(data => {
-      devChoiceGames.push(data.data[0].box_art_url.slice(0, -21) + '.jpg');
-      // console.log(devChoiceGames);
-      setImageChoice();
-      return data;
-    })
-  }
-
-
-
 
 var YTKey = '';
-  
 
-  fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${searchBar.value}walkthrough&type=video&maxResults=3&order=rating&key=${YTKey}`)
-  .then(function(response){
+
+fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${searchBar.value}walkthrough&type=video&maxResults=3&order=rating&key=${YTKey}`)
+  .then(function (response) {
     return response.json();
   })
-  .then(function(data){
-  console.log(data)
+  .then(function (data) {
+    console.log(data)
   })
 
 /*function getVideo(videoId){
