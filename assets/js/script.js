@@ -60,11 +60,10 @@ $('#searchButton').click(function(){
     $('.videoFunc').show();
 });
 
-$('.hoverButton').click(function(){
-  console.log('clicked')
-  // searchBar.value = this.child('img').attr("data-game");
-  // console.log(this.getAttribute("data-game"));
-})
+let addToSearch = button => {
+    let s = "" + button.getAttribute('data-game');
+    searchBar.value = s;
+}
 
 
 
@@ -80,7 +79,7 @@ fetch(`https://api.rawg.io/api/games?key=${key}&dates=2023-04-01,2023-07-18&per_
     console.log(data);
     for (let i = 0; i < featureGame.length; i++) {
       // console.log(getTwitchArrayImg(data.results[i].name))
-      featureGameImg[i].setAttribute("data-game", data.results[i].name) 
+      featureGame[i].setAttribute("data-game", data.results[i].name) 
       getTwitchArrayImg(data.results[i].name, i);
     }
   })
@@ -89,15 +88,16 @@ fetch(`https://api.rawg.io/api/games?key=${key}&dates=2023-04-01,2023-07-18&per_
 
 // ! HIGHEST RATED GAMES 
 // This is the code used to source the data for the new games
-fetch(`https://api.rawg.io/api/games?key=${key}&dates=2022-10-01,2023-03-01&ordering=-metacritic`)
+fetch(`https://api.rawg.io/api/games?key=${key}&dates=2022-10-01,2023-04-01&ordering=-metacritic`)
   .then(function (call) {
     return call.json();
   })
   .then(async function (input) {
+
     for(let i = 0; i < HighGame.length; i++){
       // console.log(getTwitchArrayImg(data.results[i].name))
-      HighGameImg[i].setAttribute("data-game", data.results[i].name) 
-      getTwitchArrayImgRated(data.results[i].name, i);
+      HighGameImg[i].setAttribute("data-game", input.results[i].name) 
+      getTwitchArrayImgRated(input.results[i].name, i);
       // console.log(input);
     }
   })
