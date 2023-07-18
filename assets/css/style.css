@@ -25,8 +25,8 @@ body {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  margin-bottom: -58px;
+  /* gap: 10px; */
+  /* margin-bottom: -58px; */
 }
 
 .noob {
@@ -34,16 +34,16 @@ body {
 }
 
 .headerTitle {
-  margin: 0 auto;
+  margin: 150px auto;
 }
 
 .headerTitle h1 {
   text-align: center;
-  font-size: 3.3em;
+  font-size: 10.3em;
 }
 
 .headerTitle p {
-  font-size: 10px;
+  font-size: 24px;
   text-align: center;
 }
 
