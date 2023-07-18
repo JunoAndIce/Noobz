@@ -30,7 +30,7 @@ getTwitchAuthorization();
 // RAWG API
 // This code passes in the name of the search value to RAWG, to get the game that closely matches what was searched.
 searchButton.addEventListener('click', function() {
-  fetch(`https://api.rawg.io/api/games?key=ff6852bd21af4c62aec164e2bc589671&search=${searchBar.value}&search_precise`, {
+  fetch(`https://api.rawg.io/api/games?key=${key}&search=${searchBar.value}&search_precise`, {
     method: 'get'
   })
   .then(function(response){
@@ -91,46 +91,46 @@ function setData(data) {
     popGameOneName.textContent = data.results[0].name;
     getTwitchImg( data.results[0].name);
   
-    // //Game two image and name
-    // popGameTwoName.textContent = data.results[1].name;
-    // getTwitchImg(data.results[1].name);
+    //Game two image and name
+    popGameTwoName.textContent = data.results[1].name;
+    getTwitchImg(data.results[1].name);
   
-    // //Game three image and name
-    // popGameThreeName.textContent = data.results[2].name;
-    // getTwitchImg( data.results[2].name);
+    //Game three image and name
+    popGameThreeName.textContent = data.results[2].name;
+    getTwitchImg( data.results[2].name);
   
-    // //Game four image and name
-    // popGameFourName.textContent = data.results[3].name;
-    // getTwitchImg( data.results[3].name);
+    //Game four image and name
+    popGameFourName.textContent = data.results[3].name;
+    getTwitchImg( data.results[3].name);
   
-    // //Game five image and name
+    //Game five image and name
   
-    // popGameFiveName.textContent = data.results[4].name;
-    // getTwitchImg( data.results[4].name);
+    popGameFiveName.textContent = data.results[4].name;
+    getTwitchImg( data.results[4].name);
   
-    // //Game six image and name
-    // popGameSixName.textContent = data.results[5].name;
-    // getTwitchImg( data.results[5].name);
+    //Game six image and name
+    popGameSixName.textContent = data.results[5].name;
+    getTwitchImg( data.results[5].name);
   
-    // //Game seven image and name
-    // popGameSevenName.textContent = data.results[6].name;
-    // getTwitchImg( data.results[6].name);
+    //Game seven image and name
+    popGameSevenName.textContent = data.results[6].name;
+    getTwitchImg( data.results[6].name);
   
-    // //Game eight image and name
-    // popGameEightName.textContent = data.results[7].name;
-    // getTwitchImg( data.results[7].name);
+    //Game eight image and name
+    popGameEightName.textContent = data.results[7].name;
+    getTwitchImg( data.results[7].name);
 }
 
 
 function setImage(){
   popGameOneImg.src = GameNames[0];
-  // popGameTwoImg.src = GameNames[1];
-  // popGameThreeImg.src = GameNames[2];
-  // popGameFourImg.src = GameNames[3];
-  // popGameFiveImg.src = GameNames[4];
-  // popGameSixImg.src = GameNames[5];
-  // popGameSevenImg.src = GameNames[6];
-  // popGameEightImg.src = GameNames[7];
+  popGameTwoImg.src = GameNames[1];
+  popGameThreeImg.src = GameNames[2];
+  popGameFourImg.src = GameNames[3];
+  popGameFiveImg.src = GameNames[4];
+  popGameSixImg.src = GameNames[5];
+  popGameSevenImg.src = GameNames[6];
+  popGameEightImg.src = GameNames[7];
 }
 
 
@@ -305,13 +305,13 @@ function getTwitchImg(imgUrl){
 
 
 
-
+var YTKey = 'AIzaSyDREmzG-bOOS6NnjO5AGdNEO0AdK9ESD4Y';
 
 searchButton.addEventListener('click', ()=>{
 
   const keyWords = ['walk through','game play',]
 
-  fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${searchBar.value}&type=video&maxResults=3&order=rating&key=AIzaSyDREmzG-bOOS6NnjO5AGdNEO0AdK9ESD4Y`)
+  fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${searchBar.value}&type=video&maxResults=3&order=rating&key=${YTKey}`)
   .then(function(response){
     return response.json();
   })
