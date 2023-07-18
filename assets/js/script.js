@@ -45,6 +45,14 @@ searchButton.addEventListener('click', function () {
     });
 })
 
+$(function() {
+  $(".SearchBar").focusin(function() {
+      $(".searchFunc").show();
+  }).focusout(function () {
+      $(".searchFunc").hide();
+  });
+});
+
 // ! MOST POPULAR GAMES 
 //This is where the image of popular games will go
 let popGameOneImg = document.querySelector('#imgOne')
@@ -171,7 +179,7 @@ fetch(`https://api.rawg.io/api/games?key=${key}&search=Smash+Bros+Ultimate`, {
   });
 
 
-fetch(`https://api.rawg.io/api/games?key=${key}&search=Pokemon+Heart+Gold`, {
+fetch(`https://api.rawg.io/api/games?key=${key}&search=Pokemon+Emerald`, {
   method: 'get'
 })
   .then(function (response) {
