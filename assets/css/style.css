@@ -8,7 +8,7 @@ body {
   background-color: #2a2a31;
   background-image: linear-gradient(to bottom, transparent, #2a2a31),
   url("Backdrop.jpg");
-  background-size: 100% 25%;
+  background-size: 100% 30%;
   background-repeat: no-repeat;
 }
 
@@ -25,8 +25,8 @@ body {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  margin-bottom: -58px;
+  /* gap: 10px; */
+  /* margin-bottom: -58px; */
 }
 
 .noob {
@@ -34,16 +34,16 @@ body {
 }
 
 .headerTitle {
-  margin: 0 auto;
+  margin: 150px auto;
 }
 
 .headerTitle h1 {
   text-align: center;
-  font-size: 3.3em;
+  font-size: 10.3em;
 }
 
 .headerTitle p {
-  font-size: 10px;
+  font-size: 24px;
   text-align: center;
 }
 
@@ -69,6 +69,7 @@ body {
   display: flex;
   justify-content: center;
   margin: 0 auto;
+  opacity: 0.86;
 }
 
 .input{
@@ -87,7 +88,7 @@ body {
 }
 
 .input::placeholder{
-  color: #7b7b8f
+  color: var(--focused);
 }
 
 .icon {
@@ -120,10 +121,13 @@ body {
   display: flex;
   gap: 30px;
   width: 55vw;
-  background-color: #494953;
+  background-color: var(--unfocused);
+  opacity: 0.86;  
   padding: 20px;
   border-radius: 30px;
 }
+
+dis
 
 #search-img {
   border-radius: 30px;
@@ -151,10 +155,12 @@ body {
 }
 
 #finalBtn {
+  cursor: pointer;
   padding: 20px;
   border: 2px solid; 
   background-color: #7b7b8f;
   border-radius: 30px;
+  
 }
 
 
