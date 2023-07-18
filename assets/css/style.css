@@ -125,9 +125,9 @@ body {
   opacity: 0.86;  
   padding: 20px;
   border-radius: 30px;
-}
 
-dis
+  /* display: none; */
+}
 
 #search-img {
   border-radius: 30px;
@@ -159,7 +159,7 @@ dis
   padding: 20px;
   border: 2px solid; 
   background-color: #7b7b8f;
-  border-radius: 30px;
+  border-radius: 10px;
   
 }
 
