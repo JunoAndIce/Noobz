@@ -117,54 +117,32 @@ body {
   color: #f1f1f1;
 }
 
+/* main YT and Twitch  */
 .videoFunc {
   display: none;
 }
 
-#search-img {
-  border-radius: 30px;
-}
-
-.search-queries {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.checkbox-ctn {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-}
-
-.checkbox-ctn li {
-  color: white;
-}
-
-.checkbox-ctn li input[type="checkbox"] 
-{ 
-  margin-right: 10px;
-}
-
-#finalBtn {
-  cursor: pointer;
-  padding: 20px;
-  border: 2px solid; 
-  background-color: #7b7b8f;
-  border-radius: 10px;
-  
+.hide {
+  display: none;
 }
 
 
 /* CARD SECTION  */
-.hoverButton {
+.hoverButton,
+.highHoverButton {
   margin: 10px;
   border: none;
   cursor: pointer;
+    border-radius: 10px;
 }
 
+.hoverButton img,
+.highHoverButton img {
+  border-radius: 10px;
+}
 
-.hoverButton:hover {
+.hoverButton:hover,
+.highHoverButton:hover {
   transform: scale(1.2);
 }
 

@@ -1,17 +1,20 @@
 let searchBar = document.querySelector('#SearchBar');
 let searchImg = document.querySelector('#search-img')
 let searchButton = document.querySelector('#searchButton');
-const key = `962935bac7e14d23964ca9952dc39e13`;
 
+let mainGameName = document.querySelector('.mainName');
+let mainGameImg = document.querySelector('.mainImg');
+let mainGameId = document.querySelector('.mainId');
 
 
 const featureGame = document.querySelectorAll(`.featureGame`)
 const featureGameImg = document.querySelectorAll(`.featureGameImg`)
 const HighGameImg = document.querySelectorAll(`.HighGameImg`)
 const HighGame = document.querySelectorAll(`.HighGame`)
+const gameButton = document.querySelectorAll('.hoverButton')
+const highGameButton = document.querySelectorAll('.highHoverButton')
 
-
-
+const key = `962935bac7e14d23964ca9952dc39e13`;
 
 
 // Credits DevsDash
@@ -49,20 +52,22 @@ searchButton.addEventListener('click', function () {
     })
     .then(function (data) {
       console.log(data)
-      GameName = data.results[0].name;
-      getTwitchImg(GameName);
 
-      //  console.log(getTwitchImg(GameName));
+      mainGameName.innerHTML = data.results[0].name;
+      mainGameImg.src = data.results[0].background_image;
+      getStream(mainGameId);
     });
 })
 
-$('#searchButton').click(function(){
-    $('.videoFunc').show();
+$('#searchButton').click(function () {
+  $('.videoFunc').show();
 });
 
 let addToSearch = button => {
-    let s = "" + button.getAttribute('data-game');
-    searchBar.value = s;
+  let d = "" + button.getAttribute('data-game');
+  let i = "" + button.getAttribute('data-id');
+  searchBar.value = d;
+  mainGameId.innerHTML = i;
 }
 
 
@@ -71,7 +76,7 @@ let addToSearch = button => {
 // ! 
 // !! ONLY GRABS IMAGE NAME FOR TOP 8 GAMES
 // This is the code used to source the data for the most popular games
-fetch(`https://api.rawg.io/api/games?key=${key}&dates=2023-04-01,2023-07-18&per_page=5&ordering=-metacritic&`)
+fetch(`https://api.rawg.io/api/games?key=${key}&dates=2023-05-01,2023-07-18&per_page=5&ordering=-rating&`)
   .then(function (response) {
     return response.json();
   })
@@ -79,7 +84,7 @@ fetch(`https://api.rawg.io/api/games?key=${key}&dates=2023-04-01,2023-07-18&per_
     console.log(data);
     for (let i = 0; i < featureGame.length; i++) {
       // console.log(getTwitchArrayImg(data.results[i].name))
-      featureGame[i].setAttribute("data-game", data.results[i].name) 
+      gameButton[i].setAttribute("data-game", data.results[i].name);
       getTwitchArrayImg(data.results[i].name, i);
     }
   })
@@ -88,15 +93,15 @@ fetch(`https://api.rawg.io/api/games?key=${key}&dates=2023-04-01,2023-07-18&per_
 
 // ! HIGHEST RATED GAMES 
 // This is the code used to source the data for the new games
-fetch(`https://api.rawg.io/api/games?key=${key}&dates=2022-10-01,2023-04-01&ordering=-metacritic`)
+fetch(`https://api.rawg.io/api/games?key=${key}&dates=2022-11-01,2023-03-01&ordering=-metacritic`)
   .then(function (call) {
     return call.json();
   })
   .then(async function (input) {
 
-    for(let i = 0; i < HighGame.length; i++){
+    for (let i = 0; i < HighGame.length; i++) {
       // console.log(getTwitchArrayImg(data.results[i].name))
-      HighGameImg[i].setAttribute("data-game", input.results[i].name) 
+      highGameButton[i].setAttribute("data-game", input.results[i].name);
       getTwitchArrayImgRated(input.results[i].name, i);
       // console.log(input);
     }
@@ -139,29 +144,6 @@ fetch(`https://api.rawg.io/api/games?key=${key}&dates=2022-10-01,2023-04-01&orde
 
 
 // Gets the box_art_url from the name passed in from Rawg API
-function getTwitchImg(imgUrl) {
-  fetch(`https://api.twitch.tv/helix/games?name=${imgUrl}`, {
-    method: 'GET',
-    headers: {
-      'Accept': 'application/json',
-      'Authorization': BEARER_TOKEN,
-      "Client-Id": clientId,
-    },
-  })
-
-    .then(function (response) {
-      return response.json();
-    })
-    .then(data => {
-      var imageUrl = data.data[0].box_art_url.slice(0, -21) + '.jpg';
-      searchImg.src = data.data[0].box_art_url.slice(0, -21) + '.jpg';
-      return imageUrl;
-    })
-    .catch(err => {
-      console.error(err);
-    })
-}
-
 function getTwitchArrayImg(imgUrl, i) {
   fetch(`https://api.twitch.tv/helix/games?name=${imgUrl}`, {
     method: 'GET',
@@ -177,47 +159,62 @@ function getTwitchArrayImg(imgUrl, i) {
     })
     .then(data => {
       console.log(data);
-      
+
       var imageUrl = data.data[0].box_art_url.slice(0, -21) + '.jpg';
 
       if (featureGameImg[i].src === "https://bulma.io/images/placeholders/480x640.png") {
         featureGameImg[i].src = imageUrl;
+        gameButton[i].setAttribute("data-id", data.data[0].id);
       }
+    })
+}
+
+
+function getTwitchArrayImgRated(imgUrl, i) {
+  fetch(`https://api.twitch.tv/helix/games?name=${imgUrl}`, {
+    method: 'GET',
+    headers: {
+      'Accept': 'application/json',
+      'Authorization': BEARER_TOKEN,
+      "Client-Id": clientId,
+    },
+  })
+
+    .then(function (response) {
+      return response.json();
+    })
+    .then(data => {
+      console.log(data);
+
+      var imageUrl = data.data[0].box_art_url.slice(0, -21) + '.jpg';
 
       if (HighGameImg[i].src === "https://bulma.io/images/placeholders/480x640.png") {
         HighGameImg[i].src = imageUrl;
+        highGameButton[i].setAttribute("data-id", data.data[0].id);
       }
+    })
+}
+
+
+function getStream(id) {
+  fetch(`https://api.twitch.tv/helix/streams?game_id=${id}`, {
+    method: 'GET',
+    headers: {
+      'Accept': 'application/json',
+      'Authorization': BEARER_TOKEN,
+      "Client-Id": clientId,
+    },
+  })
+
+    .then(function (response) {
+      return response.json();
+    })
+    .then(data => {
+      console.log(data);
     })
   }
 
-  function getTwitchArrayImgRated(imgUrl, i) {
-    fetch(`https://api.twitch.tv/helix/games?name=${imgUrl}`, {
-      method: 'GET',
-      headers: {
-        'Accept': 'application/json',
-        'Authorization': BEARER_TOKEN,
-        "Client-Id": clientId,
-      },
-    })
-  
-      .then(function (response) {
-        return response.json();
-      })
-      .then(data => {
-        console.log(data);
-
-        var imageUrl = data.data[0].box_art_url.slice(0, -21) + '.jpg';
-
-        if (HighGameImg[i].src === "https://bulma.io/images/placeholders/480x640.png") {
-          HighGameImg[i].src = imageUrl;
-        }
-      })
-    }
-
-
-
-
-var YTKey = '';
+// var YTKey = 'AIzaSyDoPwunoUapcRF7EPA4y7OBBixBuBc7-P8';
 
 fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${searchBar.value}walkthrough&type=video&maxResults=3&order=rating&key=${YTKey}`)
   .then(function (response) {
