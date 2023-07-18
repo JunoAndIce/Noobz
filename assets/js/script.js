@@ -1,7 +1,7 @@
 let searchBar = document.querySelector('#SearchBar');
 let searchImg = document.querySelector('#search-img')
 let searchButton = document.querySelector('#searchButton');
-const key = `ff6852bd21af4c62aec164e2bc589671`;
+const key = `962935bac7e14d23964ca9952dc39e13`;
 
 // Credits DevsDash
 // TWITCH AND IGDB API
