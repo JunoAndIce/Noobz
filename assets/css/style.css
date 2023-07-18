@@ -165,6 +165,12 @@ dis
 
 
 /* CARD SECTION  */
+.hoverButton {
+  margin: 10px;
+  border: none;
+}
+
+
 .hoverButton:hover {
   transform: scale(1.2);
 }
