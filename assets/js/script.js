@@ -1,7 +1,7 @@
 let searchBar = document.querySelector('#SearchBar');
 let searchImg = document.querySelector('#search-img')
 let searchButton = document.querySelector('#searchButton');
-const key = `87a21af0194d4db1a70bb42c6c104ebe`;
+const key = `ff6852bd21af4c62aec164e2bc589671`;
 
 // Credits DevsDash
 // TWITCH AND IGDB API
@@ -30,7 +30,7 @@ getTwitchAuthorization();
 // RAWG API
 // This code passes in the name of the search value to RAWG, to get the game that closely matches what was searched.
 searchButton.addEventListener('click', function() {
-  fetch(`https://api.rawg.io/api/games?key=87a21af0194d4db1a70bb42c6c104ebe&search=${searchBar.value}&search_precise`, {
+  fetch(`https://api.rawg.io/api/games?key=ff6852bd21af4c62aec164e2bc589671&search=${searchBar.value}&search_precise`, {
     method: 'get'
   })
   .then(function(response){
@@ -295,3 +295,24 @@ function getTwitchImg(imgUrl){
         console.error(err);
 })
 }
+
+
+
+
+
+searchButton.addEventListener('click', ()=>{
+
+  const keyWords = ['walk through','game play',]
+
+  fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${searchBar.value}&type=video&maxResults=3&order=rating&key=AIzaSyDREmzG-bOOS6NnjO5AGdNEO0AdK9ESD4Y`)
+  .then(function(response){
+    return response.json();
+  })
+  .then(function(data){
+  console.log(data)
+  })
+
+
+
+
+})
