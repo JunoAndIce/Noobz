@@ -7,6 +7,8 @@ const key = `962935bac7e14d23964ca9952dc39e13`;
 
 const featureGame = document.querySelectorAll(`.featureGame`)
 const featureGameImg = document.querySelectorAll(`.featureGameImg`)
+const HighGameImg = document.querySelectorAll(`.HighGameImg`)
+const HighGame = document.querySelectorAll(`.HighGame`)
 
 
 
@@ -125,7 +127,14 @@ fetch(`https://api.rawg.io/api/games?key=${key}&dates=2022-10-01,2023-04-01&orde
     return call.json();
   })
   .then(function (input) {
-    // console.log(input);
+    for(let i = 0; i < HighGame.length; i++){
+      console.log(getTwitchArrayImg(data.results[i].name))
+      HighGameImg[i].src =  await getTwitchArrayImgHigh(data.results[i].name, i);
+    console.log(input);
+    }
+/*
+    // Game one
+    getTwitchImgRated(input.results[0].name);
 
   })
   .catch(error => console.log(error));
@@ -246,13 +255,7 @@ function getTwitchArrayImg(imgUrl, i) {
       if (featureGameImg[i].src === "https://bulma.io/images/placeholders/480x640.png") {
         featureGameImg[i].src = imageUrl;
       }
-      
-      return imageUrl;
-    })
-    .catch(err => {
-      console.error(err);
-    })
-}
+
 
 var YTKey = '';
 
