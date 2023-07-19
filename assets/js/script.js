@@ -262,14 +262,9 @@ function getYoutube(id, i) {
 
       for (let i = 0; i < youtubeCtn.length; i++) {
         // console.log(getTwitchArrayImg(data.results[i].name))
-        youtubeThumb[i].setAttribute('href', 'https://www.twitch.tv/' + data.data[i].user_name);
-        youtubeImg[i].src = data.data[i].thumbnail_url.slice(0, -21)  + '.jpg';
+        youtubeThumb[i].setAttribute('href', 'https://www.youtube.com/watch?v=' + data.items[i].id.videoId);
+        youtubeImg[i].src = data.items[i].snippet.thumbnails.high.url;
         youtubeCtn[i].classList.remove('hide');
       }
     })
   }
-
-// function getVideo(videoId){
-// url = `https://www.youtube.com/watch?v=${videoId}`
-
-// }
