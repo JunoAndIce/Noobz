@@ -7,12 +7,15 @@ let mainGameImg = document.querySelector('.mainImg');
 let mainGameId = document.querySelector('.mainId');
 
 
-const featureGame = document.querySelectorAll(`.featureGame`)
-const featureGameImg = document.querySelectorAll(`.featureGameImg`)
-const HighGameImg = document.querySelectorAll(`.HighGameImg`)
-const HighGame = document.querySelectorAll(`.HighGame`)
-const gameButton = document.querySelectorAll('.hoverButton')
-const highGameButton = document.querySelectorAll('.highHoverButton')
+const featureGame = document.querySelectorAll(`.featureGame`);
+const featureGameImg = document.querySelectorAll(`.featureGameImg`);
+const HighGameImg = document.querySelectorAll(`.HighGameImg`);
+const HighGame = document.querySelectorAll(`.HighGame`);
+const gameButton = document.querySelectorAll('.hoverButton');
+const highGameButton = document.querySelectorAll('.highHoverButton');
+const twitchCtn = document.querySelectorAll('.twitchVid');
+const twitchThumb = document.querySelectorAll('.twitchThumb');
+const twitchImg = document.querySelectorAll('#thumbImg');
 
 const key = `962935bac7e14d23964ca9952dc39e13`;
 
@@ -55,7 +58,7 @@ searchButton.addEventListener('click', function () {
 
       mainGameName.innerHTML = data.results[0].name;
       mainGameImg.src = data.results[0].background_image;
-      getStream(mainGameId);
+      getStream(mainGameId.innerHTML);
     });
 })
 
@@ -68,6 +71,7 @@ let addToSearch = button => {
   let i = "" + button.getAttribute('data-id');
   searchBar.value = d;
   mainGameId.innerHTML = i;
+  $('html, body').animate({ scrollTop: 0 }, 'fast');
 }
 
 
@@ -196,7 +200,7 @@ function getTwitchArrayImgRated(imgUrl, i) {
 }
 
 
-function getStream(id) {
+function getStream(id, i) {
   fetch(`https://api.twitch.tv/helix/streams?game_id=${id}`, {
     method: 'GET',
     headers: {
@@ -211,6 +215,13 @@ function getStream(id) {
     })
     .then(data => {
       console.log(data);
+      
+      for (let i = 0; i < twitchCtn.length; i++) {
+        // console.log(getTwitchArrayImg(data.results[i].name))
+        twitchThumb[i].setAttribute('href', 'https://www.twitch.tv/' + data.data[i].user_name);
+        twitchImg[i].src = data.data[i].thumbnail_url.slice(0, -21)  + '.jpg';
+        twitchCtn[i].classList.remove('hide');
+      }
     })
   }
 
