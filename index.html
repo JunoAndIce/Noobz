@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,25 +16,26 @@
     <header id="header">
         <!-- NEW SECTION -->
         <!-- https://bulma.io/documentation/layout/hero/ -->
-    
+
         <section class="header">
-    
+
             <div class="inner">
                 <nav class="nav">
                     <div class="headerTitle">
                         <h1 class="title noob font-effect-3d has-text-light">N<span class="coins">OO</span>BZ</h1>
                         <p class="subtitle noob has-text-light">Your gaming walkthrough database</p>
                     </div>
-                    
-                    
+
+
                     <div class="field has-addons-centered search-ctn">
                         <div class="control has-icons-left has-icon-right">
                             <span class="search-box">
-                                <input class="input has-text-light SearchBar" type="text" placeholder="Search for a game..." id="SearchBar">
+                                <input class="input has-text-light SearchBar" type="text"
+                                    placeholder="Search for a game..." id="SearchBar">
                             </span>
-                                <span class="icon is-left">
-                                    <i class="fa fa-magnifying-glass"></i>
-                                </span>
+                            <span class="icon is-left">
+                                <i class="fa fa-magnifying-glass"></i>
+                            </span>
                         </div>
 
                         <div class="control">
@@ -42,13 +44,13 @@
                             </button>
                         </div>
                     </div>
-    
+
                 </nav>
             </div>
-    
+
         </section>
     </header>
-    
+
     <!-- THESE BR's ARE THE PLACEHOLDERS FOR THE HERO SECTION  -->
     <br>
     <br>
@@ -57,15 +59,26 @@
         <div class="container">
             <div class="tile">
                 <div class="tile is-parent is-vertical">
-                    <article class="tile is-child notification is-dark is-12">
-                        <p class="title mainName">Game Name</p>
+                    <article class="tile is-child is-12">
+                        <p class="title noob mainName font-effect-3d">Game Name</p>
                         <p class="hide title mainId"></p>
                     </article>
-                    <article class="tile is-child notification is-dark">
-                        <p class="title">Details</p>
-                        <p class="subtitle">extra stuff</p>
-                        <p class="subtitle">extra stuff</p>
-                        <p class="subtitle">extra stuff</p>
+                    <article class="gameInfo tile is-child">
+                        <div class="infoTitle">
+                            <p class="title font-effect-3d noob">Details</p>
+                        </div>
+                        <div class="notification is-dark infoPlat">
+                            <p class="subT">Platforms:</p>
+                            <p id="platforms"></p>
+                        </div>
+                        <div class="notification is-dark infoGenre">
+                            <p class="subT">Genre:</p>
+                            <p id="genre"></p>
+                        </div>
+                        <div class="notification is-dark infoRate">
+                            <p class="subT">Rating</p>
+                            <p id="ratings"></p>
+                        </div>
                 </div>
                 <div class="tile is-parent">
                     <article class="tile is-child">
@@ -76,9 +89,9 @@
                 </div>
             </div>
         </div>
-        
+
         <br>
-        
+
         <div class="columns is-5">
             <div class="container" style="max-width: 40%;">
                 <div class="notification is-dark">
@@ -123,8 +136,8 @@
     <br>
     <br>
     <!-- THESE BR's ARE THE PLACEHOLDERS FOR THE HERO SECTION  -->
-    
-    
+
+
     <!-- HERO SECTION
     <section>
         <div class="hero">
@@ -132,191 +145,140 @@
         </div>
     </section> -->
 
-<!-- GAME TILES SECTION -->
-<div class="tile is-vertical">
-    <!-- TOP 2 TILES -->
+    <!-- GAME TILES SECTION -->
     <div class="tile is-vertical">
-        <!-- LEFT TOP TILE -->
+        <!-- TOP 2 TILES -->
         <div class="tile is-vertical">
-            <!-- TITLE OF SECTION -->
-            <div class="tile is-parent">
-                <article class="tile is-child is-4">
-                    <p class="title noob has-text-light">Featured Games</p>
-                </article>
-            </div>
-            <div class=" scrolling-wrapper" style="height: 500px; width: 100%">
-                <!-- ROW OF THREE GAME -->
-                <div class="cardClas featureGame">
-                    <!-- GAME ONE BLOCK-->
-                        <button onclick="addToSearch(this);" data-game="" class="hoverButton is-child is-focused">
-                            <img src="https://bulma.io/images/placeholders/480x640.png"id="imgOne" class="featureGameImg">
-                        </button>
-                    </div>
-                    <!-- GAME TWO BLOCK-->
-                    <div class="cardClass featureGame">
-                        <button onclick="addToSearch(this);" class="tile hoverButton is-child is-focused">
-                            <img src="https://bulma.io/images/placeholders/480x640.png" id="imgTwo" class="featureGameImg">
-                        </button>
-                    </div>
-                    <!-- GAME THREE BLOCK-->
-                    <div class="cardClass featureGame">
-                        <button onclick="addToSearch(this);" class="tile hoverButton is-child is-focused">
-                            <img  src="https://bulma.io/images/placeholders/480x640.png" id="imgThree" class="featureGameImg">
-                        </button>
-                    </div>
-                    <!-- GAME FOUR BLOCK-->
-                    <div class="cardClass featureGame">
-                        <button onclick="addToSearch(this);" class="tile hoverButton is-child is-focused">
-                            <img src="https://bulma.io/images/placeholders/480x640.png" id="imgFour" class="featureGameImg">
-                        </button>
-                    </div>
-                    <!-- GAME FIVE BLOCK-->
-                    <div class="cardClass featureGame">
-                        <button onclick="addToSearch(this);" class="tile hoverButton is-child is-focused">
-                            <img src="https://bulma.io/images/placeholders/480x640.png" id="imgFive"class="featureGameImg">
-                        </button>
-                    </div>
-                    <div class="cardClass featureGame">
-                        <button onclick="addToSearch(this);" class="tile hoverButton is-child is-focused">
-                            <img src="https://bulma.io/images/placeholders/480x640.png" id="imgSix" class="featureGameImg">
-                        </button>
-                    </div>
-                    <div class="cardClass featureGame">
-                        <button onclick="addToSearch(this);" class="tile hoverButton is-child is-focused">
-                                <img src="https://bulma.io/images/placeholders/480x640.png" id="imgSeven" class="featureGameImg">
-                        </button>
-                    </div>
-                    <div class="cardClass featureGame">
-                        <button onclick="addToSearch(this);" class="tile hoverButton is-child is-focused">
-                                <img src="https://bulma.io/images/placeholders/480x640.png" id="imgEight" class="featureGameImg">
-                        </button>
-                    </div>
-            </div>
-        </div>
-    <!-- </div> -->
-        <div class="tile is-vertical">
-            <!-- TITLE OF SECTION -->
-            <div class="tile is-parent">
-                <article class="tile is-child is-6">
-                    <p class="title noob has-text-light">Highest Rated games of 2023</p>
-                </article>
-            </div>
-
-            <!-- ROW OF THREE GAME -->
-            <div class="scrolling-wrapper" style="height: 500px; width: 100%">
-                <!-- GAME ONE BLOCK-->
-                <div class="cardClass HighGame">
-                    <button onclick="addToSearch(this);" class=" tile highHoverButton is-child is-focused">
-                        <img src="https://bulma.io/images/placeholders/480x640.png" id="imgOneNew" class="HighGameImg">
-                    </button>
+            <!-- LEFT TOP TILE -->
+            <div class="tile is-vertical">
+                <!-- TITLE OF SECTION -->
+                <div class="tile is-parent">
+                    <article class="tile is-child is-4">
+                        <p class="title noob font-effect-3d has-text-light">Featured Games</p>
+                    </article>
                 </div>
-                <!-- GAME TWO BLOCK-->
-                <div class="cardClass HighGame">
-                    <button onclick="addToSearch(this);" class=" tile highHoverButton is-child is-focused">
-                        <img src="https://bulma.io/images/placeholders/480x640.png" id="imgTwoNew" class="HighGameImg">
-                    </button>
-                </div>
-                <!-- GAME THREE BLOCK-->
-                <div class="cardClass HighGame">
-                    <button onclick="addToSearch(this);" class="tile highHoverButton is-child is-focused">
-                        <img src="https://bulma.io/images/placeholders/480x640.png" id="imgThreeNew" class="HighGameImg">
-                    </button>
-                </div>
-                <!-- GAME FOUR BLOCK-->
-                <div class="cardClass HighGame">
-                    <button onclick="addToSearch(this);" class="tile highHoverButton is-child is-focused">
-                        <img src="https://bulma.io/images/placeholders/480x640.png" id="imgFourNew" class="HighGameImg">
-                    </button>
-                </div>
-                <!-- GAME FIVE BLOCK-->
-                <div class="cardClass HighGame">
-                    <button onclick="addToSearch(this);" class="tile highHoverButton is-child is-focused">
-                            <img src="https://bulma.io/images/placeholders/480x640.png" id="imgFiveNew" class="HighGameImg">
-                    </button>
-                </div>
-                <div class="cardClass HighGame">
-                    <button onclick="addToSearch(this);" class="tile highHoverButton is-child is-focused">
-                            <img src="https://bulma.io/images/placeholders/480x640.png" id="imgSixNew" class="HighGameImg">
-                        
-                    </button>
-                </div>
-                <div class="cardClass HighGame">
-                    <button onclick="addToSearch(this);" class="tile highHoverButton is-child is-focused">
-                        <img src="https://bulma.io/images/placeholders/480x640.png" id="imgSevenNew" class="HighGameImg">
-                    </button>
-                </div>
-                <div class="cardClass HighGame">
-                    <button onclick="addToSearch(this);" class="tile highHoverButton is-child is-focused">
-                        <img src="https://bulma.io/images/placeholders/480x640.png" id="imgEightNew" class="HighGameImg">
-                    </button>
-                </div>
-            </div>
-        </div>
-
-
-
-
-        <div class="tile is-vertical">
-            <!-- TITLE OF SECTION -->
-            <div class="tile is-parent">
-                <article class="tile is-child is-4">
-                    <p class="title noob has-text-light">Developer's Choice</p>
-                </article>
-            </div>
-            <!-- ROW OF THREE GAME -->
-            <div class="tile is-parent">
-                <!-- GAME ONE BLOCK-->
                 <div class=" scrolling-wrapper" style="height: 500px; width: 100%">
-                    <div class="cardClass">
-                        <button class="tile hoverButton is-child is-focused">
-                        <img id="ediGameImgOne" src="https://bulma.io/images/placeholders/480x640.png">
+                    <!-- ROW OF THREE GAME -->
+                    <div class="cardClas featureGame">
+                        <!-- GAME ONE BLOCK-->
+                        <button onclick="addToSearch(this);" data-game="" class="hoverButton is-child is-focused">
+                            <img src="https://bulma.io/images/placeholders/480x640.png" id="imgOne"
+                                class="featureGameImg">
                         </button>
                     </div>
                     <!-- GAME TWO BLOCK-->
-                    <div class="cardClass">
-                        <button class="tile hoverButton is-child is-focused">
-                            <img id="shawnGameImgOne" src="https://bulma.io/images/placeholders/480x640.png">
+                    <div class="cardClass featureGame">
+                        <button onclick="addToSearch(this);" class="tile hoverButton is-child is-focused">
+                            <img src="https://bulma.io/images/placeholders/480x640.png" id="imgTwo"
+                                class="featureGameImg">
                         </button>
                     </div>
                     <!-- GAME THREE BLOCK-->
-                    <div class="cardClass">
-                        <button class="tile hoverButton is-child is-focused">
-                            <img id="pabloGameImgOne" src="https://bulma.io/images/placeholders/480x640.png">
+                    <div class="cardClass featureGame">
+                        <button onclick="addToSearch(this);" class="tile hoverButton is-child is-focused">
+                            <img src="https://bulma.io/images/placeholders/480x640.png" id="imgThree"
+                                class="featureGameImg">
                         </button>
                     </div>
                     <!-- GAME FOUR BLOCK-->
-                    <div class="cardClass">
-                        <button class="tile hoverButton is-child is-focused">
-                            <img id="ediGameImgTwo"src="https://bulma.io/images/placeholders/480x640.png">
+                    <div class="cardClass featureGame">
+                        <button onclick="addToSearch(this);" class="tile hoverButton is-child is-focused">
+                            <img src="https://bulma.io/images/placeholders/480x640.png" id="imgFour"
+                                class="featureGameImg">
                         </button>
                     </div>
                     <!-- GAME FIVE BLOCK-->
-                    <div class="cardClass">
-                        <button class="tile hoverButton is-child is-focused">
-                            <img id="shawnGameImgTwo" src="https://bulma.io/images/placeholders/480x640.png">
+                    <div class="cardClass featureGame">
+                        <button onclick="addToSearch(this);" class="tile hoverButton is-child is-focused">
+                            <img src="https://bulma.io/images/placeholders/480x640.png" id="imgFive"
+                                class="featureGameImg">
                         </button>
                     </div>
-                    <div class="cardClass">
-                        <button class="tile hoverButton is-child is-focused">
-                            <img id="pabloGameImgTwo" src="https://bulma.io/images/placeholders/480x640.png">
+                    <div class="cardClass featureGame">
+                        <button onclick="addToSearch(this);" class="tile hoverButton is-child is-focused">
+                            <img src="https://bulma.io/images/placeholders/480x640.png" id="imgSix"
+                                class="featureGameImg">
                         </button>
                     </div>
-                    <div class="cardClass">
-                        <button class="tile hoverButton is-child is-focused">
-                            <img id="ediGameImgThree" src="https://bulma.io/images/placeholders/480x640.png">
+                    <div class="cardClass featureGame">
+                        <button onclick="addToSearch(this);" class="tile hoverButton is-child is-focused">
+                            <img src="https://bulma.io/images/placeholders/480x640.png" id="imgSeven"
+                                class="featureGameImg">
                         </button>
                     </div>
-                    <div class="cardClass">
-                        <button class="tile hoverButton is-child is-focused">
-                            <img id="shawnGameImgThree" src="https://bulma.io/images/placeholders/480x640.png">
-                        </button>
-                    </div>
-                    <div class="cardClass">
-                        <button class="tile hoverButton is-child is-focused">
-                            <img id="pabloGameImgThree" src="https://bulma.io/images/placeholders/480x640.png">
+                    <div class="cardClass featureGame">
+                        <button onclick="addToSearch(this);" class="tile hoverButton is-child is-focused">
+                            <img src="https://bulma.io/images/placeholders/480x640.png" id="imgEight"
+                                class="featureGameImg">
                         </button>
                     </div>
                 </div>
+            </div>
+            <!-- </div> -->
+            <div class="tile is-vertical">
+                <!-- TITLE OF SECTION -->
+                <div class="tile is-parent">
+                    <article class="tile is-child is-6">
+                        <p class="title noob font-effect-3d has-text-light">Highest Rated games of 2023</p>
+                    </article>
+                </div>
+
+                <!-- ROW OF THREE GAME -->
+                <div class="scrolling-wrapper" style="height: 500px; width: 100%">
+                    <!-- GAME ONE BLOCK-->
+                    <div class="cardClass HighGame">
+                        <button onclick="addToSearch(this);" class=" tile highHoverButton is-child is-focused">
+                            <img src="https://bulma.io/images/placeholders/480x640.png" id="imgOneNew"
+                                class="HighGameImg">
+                        </button>
+                    </div>
+                    <!-- GAME TWO BLOCK-->
+                    <div class="cardClass HighGame">
+                        <button onclick="addToSearch(this);" class=" tile highHoverButton is-child is-focused">
+                            <img src="https://bulma.io/images/placeholders/480x640.png" id="imgTwoNew"
+                                class="HighGameImg">
+                        </button>
+                    </div>
+                    <!-- GAME THREE BLOCK-->
+                    <div class="cardClass HighGame">
+                        <button onclick="addToSearch(this);" class="tile highHoverButton is-child is-focused">
+                            <img src="https://bulma.io/images/placeholders/480x640.png" id="imgThreeNew"
+                                class="HighGameImg">
+                        </button>
+                    </div>
+                    <!-- GAME FOUR BLOCK-->
+                    <div class="cardClass HighGame">
+                        <button onclick="addToSearch(this);" class="tile highHoverButton is-child is-focused">
+                            <img src="https://bulma.io/images/placeholders/480x640.png" id="imgFourNew"
+                                class="HighGameImg">
+                        </button>
+                    </div>
+                    <!-- GAME FIVE BLOCK-->
+                    <div class="cardClass HighGame">
+                        <button onclick="addToSearch(this);" class="tile highHoverButton is-child is-focused">
+                            <img src="https://bulma.io/images/placeholders/480x640.png" id="imgFiveNew"
+                                class="HighGameImg">
+                        </button>
+                    </div>
+                    <div class="cardClass HighGame">
+                        <button onclick="addToSearch(this);" class="tile highHoverButton is-child is-focused">
+                            <img src="https://bulma.io/images/placeholders/480x640.png" id="imgSixNew"
+                                class="HighGameImg">
+
+                        </button>
+                    </div>
+                    <div class="cardClass HighGame">
+                        <button onclick="addToSearch(this);" class="tile highHoverButton is-child is-focused">
+                            <img src="https://bulma.io/images/placeholders/480x640.png" id="imgSevenNew"
+                                class="HighGameImg">
+                        </button>
+                    </div>
+                    <div class="cardClass HighGame">
+                        <button onclick="addToSearch(this);" class="tile highHoverButton is-child is-focused">
+                            <img src="https://bulma.io/images/placeholders/480x640.png" id="imgEightNew"
+                                class="HighGameImg">
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -324,14 +286,13 @@
 
     <div class="youtubeContainer"></div>
 
-<footer id="footer">
-    <h4>Thank you for stopping by</h4>
-    <p>If you have any questions, please click here</p>
-</footer>
-    <script
-    src="https://code.jquery.com/jquery-3.7.0.js"
-    integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
-    crossorigin="anonymous"></script>
+    <footer id="footer">
+        <h4>Thank you for stopping by</h4>
+        <p>If you have any questions, please click here</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"
+        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="./assets/js/script.js"></script>
 </body>
+
 </html>

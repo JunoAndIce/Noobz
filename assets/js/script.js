@@ -13,6 +13,11 @@ const HighGameImg = document.querySelectorAll(`.HighGameImg`);
 const HighGame = document.querySelectorAll(`.HighGame`);
 const gameButton = document.querySelectorAll('.hoverButton');
 const highGameButton = document.querySelectorAll('.highHoverButton');
+
+
+let platTxt = document.getElementById('platforms');
+let rateTxt = document.getElementById('ratings');
+let genTxt = document.getElementById('genre');
 const twitchCtn = document.querySelectorAll('.twitchVid');
 const twitchThumb = document.querySelectorAll('.twitchThumb');
 const twitchImg = document.querySelectorAll('#thumbImg');
@@ -58,6 +63,16 @@ searchButton.addEventListener('click', function () {
     })
     .then(function (data) {
       console.log(data)
+
+      for (let i = 0; i < data.results[0].platforms.length; i++) {
+        platTxt.innerHTML += data.results[0].platforms[i].platform.name + ", ";
+      }
+
+      for (let i = 0; i < data.results[0].genres.length; i++) {
+        genTxt.innerHTML += data.results[0].genres[i].name + ", ";
+      }
+      
+      rateTxt.innerHTML =  data.results[0].esrb_rating.name_en;
 
       mainGameName.innerHTML = data.results[0].name;
       mainGameImg.src = data.results[0].background_image;
