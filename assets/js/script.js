@@ -16,6 +16,9 @@ const highGameButton = document.querySelectorAll('.highHoverButton');
 const twitchCtn = document.querySelectorAll('.twitchVid');
 const twitchThumb = document.querySelectorAll('.twitchThumb');
 const twitchImg = document.querySelectorAll('#thumbImg');
+const youtubeCtn = document.querySelectorAll('.youtubeVid');
+const youtubeThumb = document.querySelectorAll('.youtubeThumb');
+const youtubeImg = document.querySelectorAll('#youtubeThumbImg');
 
 const key = `962935bac7e14d23964ca9952dc39e13`;
 
@@ -59,6 +62,7 @@ searchButton.addEventListener('click', function () {
       mainGameName.innerHTML = data.results[0].name;
       mainGameImg.src = data.results[0].background_image;
       getStream(mainGameId.innerHTML);
+      getYoutube(mainGameId.innerHTML);
     });
 })
 
@@ -162,7 +166,7 @@ function getTwitchArrayImg(imgUrl, i) {
       return response.json();
     })
     .then(data => {
-      console.log(data);
+      // console.log(data);
 
       var imageUrl = data.data[0].box_art_url.slice(0, -21) + '.jpg';
 
@@ -188,7 +192,7 @@ function getTwitchArrayImgRated(imgUrl, i) {
       return response.json();
     })
     .then(data => {
-      console.log(data);
+      // console.log(data);
 
       var imageUrl = data.data[0].box_art_url.slice(0, -21) + '.jpg';
 
@@ -214,6 +218,7 @@ function getStream(id, i) {
       return response.json();
     })
     .then(data => {
+      console.log("This is the Twitch data: ");
       console.log(data);
       
       for (let i = 0; i < twitchCtn.length; i++) {
@@ -225,16 +230,26 @@ function getStream(id, i) {
     })
   }
 
-// var YTKey = 'AIzaSyDoPwunoUapcRF7EPA4y7OBBixBuBc7-P8';
+var YTKey = 'AIzaSyDoPwunoUapcRF7EPA4y7OBBixBuBc7-P8';
 
-fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${searchBar.value}walkthrough&type=video&maxResults=3&order=rating&key=${YTKey}`)
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    console.log(data)
-  })
+function getYoutube(id, i) {
+  fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${searchBar.value}+walkthrough&type=video&maxResults=3&order=rating&key=${YTKey}`)
+  // fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=zelda+walkthrough&type=video&maxResults=3&order=rating&key=${YTKey}`)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log("This is youtube data: ")
+      console.log(data)
 
+      for (let i = 0; i < youtubeCtn.length; i++) {
+        // console.log(getTwitchArrayImg(data.results[i].name))
+        youtubeThumb[i].setAttribute('href', 'https://www.twitch.tv/' + data.data[i].user_name);
+        youtubeImg[i].src = data.data[i].thumbnail_url.slice(0, -21)  + '.jpg';
+        youtubeCtn[i].classList.remove('hide');
+      }
+    })
+  }
 
 // function getVideo(videoId){
 // url = `https://www.youtube.com/watch?v=${videoId}`
