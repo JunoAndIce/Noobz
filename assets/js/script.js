@@ -55,6 +55,9 @@ getTwitchAuthorization();
 // RAWG API
 // This code passes in the name of the search value to RAWG, to get the game that closely matches what was searched.
 searchButton.addEventListener('click', function () {
+  platTxt.innerHTML = "";
+  rateTxt.innerHTML = "";
+  genTxt.innerHTML = "";
   fetch(`https://api.rawg.io/api/games?key=${key}&search=${searchBar.value}&search_precise`, {
     method: 'get'
   })
