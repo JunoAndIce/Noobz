@@ -126,6 +126,29 @@ body {
   display: none;
 }
 
+.mainName{
+  text-align: center;
+}
+.gameInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center ;
+  gap: 30px;
+}
+
+.infoTitle,
+.infoPlat,
+.infoRate,
+.infoGenre {
+  /* margin: 0 auto; */
+  width: 100%;
+  text-align: center;
+}
+
+.subT {
+  color: rgb(146, 146, 146);
+}
 
 /* CARD SECTION  */
 .hoverButton,
