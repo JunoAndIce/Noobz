@@ -248,7 +248,7 @@ function getStream(id, i) {
     })
   }
 
-var YTKey = 'AIzaSyDoPwunoUapcRF7EPA4y7OBBixBuBc7-P8';
+//var YTKey = 'AIzaSyDoPwunoUapcRF7EPA4y7OBBixBuBc7-P8';
 
 function getYoutube(id, i) {
   fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${searchBar.value}+walkthrough&type=video&maxResults=3&order=rating&key=${YTKey}`)
